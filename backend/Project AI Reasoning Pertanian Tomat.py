@@ -148,3 +148,4 @@ for i in jawaban :
     print(f"Solusi\t\t\t: {ham[i].solusi}")
     print("-"*50)
 
+print("Tes")
