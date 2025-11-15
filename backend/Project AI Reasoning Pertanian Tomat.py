@@ -147,7 +147,3 @@ for i in jawaban :
     print(f"Tingkat Kepercayaan\t: {(jawaban[i]*100):.2f}%")
     print(f"Solusi\t\t\t: {ham[i].solusi}")
     print("-"*50)
-
-print("Tes")
-
-print("Hello World")
