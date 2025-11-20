@@ -72,20 +72,20 @@ while True :
         if jawab < 20 :
             for k in jawaban :
                 if k == "P05" :
-                    jawaban[k] += ((1 - jawaban[k]) * 0,6 * (persen / 100))
+                    jawaban[k] += ((1 - jawaban[k]) * 0.6 * (persen / 100))
                     break
             else :
                 jawaban["P05"] = 0.6 * persen/100
         if jawab > 30 :
             for k in jawaban :
                 if k == "P07" :
-                    jawaban[k] += ((1 - jawaban[k]) * 0,5 * (persen / 100))
+                    jawaban[k] += ((1 - jawaban[k]) * 0.5 * (persen / 100))
                     break
             else :
                 jawaban["P07"] = 0.5 * persen/100
             for k in jawaban :
                 if k == "P08" :
-                    jawaban[k] += ((1 - jawaban[k]) * 0,5 * (persen / 100))
+                    jawaban[k] += ((1 - jawaban[k]) * 0.5 * (persen / 100))
                     break
             else :
                 jawaban["P08"] = 0.5 * persen/100
@@ -100,7 +100,7 @@ while True :
         if jawab < 40 :
             for k in jawaban :
                 if k == "P14" :
-                    jawaban[k] += ((1 - jawaban[k]) * 0,7 * (persen / 100))
+                    jawaban[k] += ((1 - jawaban[k]) * 0.7 * (persen / 100))
                     break
             else :
                 jawaban["P14"] = 0.7 * persen/100
