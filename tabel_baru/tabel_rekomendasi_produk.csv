@@ -1,0 +1,81 @@
+Column1,Column2,Column3
+H01, Asefat,"Acemain 75 SP, Afate 75 SP, Manthene 75 SP, Missel 75 SP, Orthene 75 SP"
+H01,Deltametrin,"Aggressive 25 EC, Decis 25 EC"
+H01,Metomil,Agrinate 40 SP
+H01,Metidation,Agrowcide 25 WP
+H01,Fenvalerat,Akash 200 EC
+H01,Lambda-sihalotrin,"Akocytrin 50 EC, Rudal 25 EC, Matador 25 CS, Sidador 30 EC"
+H01,Klorpirifos,"Akron 500 EC, Azure 200 EC, Sidalaku 212 EC"
+H01,Sipermetrin,"Arrivo 30 EC, Cypermax 100 EC, Metrin 30 EC, Sidamethrin 50 EC"
+H01,Klorfluazuron,Atabron 50 EC
+H01,Profenofos,"Curacron 500 EC, Profile 430 EC, Buzzer 500 EC"
+H01,Karbosulfan,Marshal 200 SC
+H01,Karbaril,Sevin 85 SP
+H01,Amitraz,Mitac 200 EC
+H02,Asetamiprid,"Amsipilan 20 SP, Jitsu 200 SL, Mospilan 30 EC"
+H02,Beta siflutrin,Buldok 25 EC
+H02,Profenofos,"Buzzer 500 EC, Curacron 500 EC"
+H02,Deltametrin,Decis 25 EC
+H02,Siflutrin,Kastuba 50 EC
+H02,Metil Eugenol,Petrogenol 800 L
+H03,Sipermetrin,"Arrivo 30 EC, Cypermax 100 EC"
+H03,Deltametrin,Decis 25 EC
+H03,Profenofos,Curacron 500 EC
+H03,Metomil,Agrinate 40 SP
+H04,Imidakloprid,"Abuki 50 SL, Agrovin 200 SL, Alena 200 SL, Amirid 200 SL, Avidor 25 WP, Confidor 5 WP, Confidor 70 WG, Confidor 200 SL, Confix 10 WP"
+H04,Tiametoksam,"Actara 25 WG, Cruiser 350 FS"
+H04,Lambda-sihalotrin + Tiametoksam,Alika 247 ZC
+H04,Buprofezin,"Applaud 10 WP, Applaud 440 SC"
+H04,Diafentiuron,"Agus 500 SC, Pegasus 500 EC"
+H04,Etiprol,Curbix 100 SC
+H04,Abamektin,"Agrimec 18 EC, Aspire 18 EC, Bamex 18 EC, Supemec 18 EC"
+H04,Dimetoat,"Danadim 400 EC, Decafen 400 EC"
+H05,Asefat,"Acemain 75 SP, Afate 75 SP, Orthene 75 SP"
+H05,Metomil,Agrinate 40 SP
+H05,Profenofos,"Curacron 500 EC, Profile 430 EC"
+H05,Klorpirifos,"Akron 500 EC, Azure 200 EC"
+H05,Sipermetrin,"Arrivo 30 EC, Cypermax 100 EC, Sidamethrin 50 EC"
+H05,Deltametrin,"Aggressive 25 EC, Decis 25 EC"
+H05,Lambda-sihalotrin,"Rudal 25 EC, Matador 25 CS"
+H05,Karbosulfan,Marshal 200 SC
+H06,Abamektin,"Agrimec 18 EC, Bamex 18 EC, Aspire 18 EC"
+H06,Siromazin,Trigard 75 WP
+H06,Imidakloprid,"Confidor 200 SL, Avidor 25 WP"
+H07,Imidakloprid,"Abuki 50 SL, Agrovin 200 SL, Alena 200 SL, Confidor 5 WP"
+H07,Tiametoksam,Actara 25 WG
+H07,Abamektin,"Agrimec 18 EC, Aspire 18 EC, Bamex 18 EC"
+H07,Klorfenapir,Akosu 100 SC
+H07,Fipronil,Balistic 50 SC
+H07,Bensultap,Bancol 50 WP
+H07,Dimetoat,Danadim 400 EC
+P01,Propamokarb hidroklorida,"Previcur-N, Infinito 687.5 SC"
+P01,Mankozeb,Dithane M-45
+P02,Propineb,"Antracol 70 WP, Foyer 70 WP, Colanta 70 WP"
+P02,Difenokonazol,"Amcore 250 EC, Booster 250 EC, Score 250 EC"
+P02,Klorotalonil,"Daconil 75 WP, Dapper 75 WP, Grownil 75 WP"
+P02,Azoksistrobin + Difenokonazol,Amistartop 325 SC
+P02,Benomil,Benhasil 50 WP
+P02,Tebukonazol,"Bettup 200 EC, Folicur 430 SC"
+P02,Mankozeb,Dithane M-45
+P03,Klorotalonil,Daconil 75 WP
+P03,Mankozeb,Dithane M-45
+P03,Difenokonazol,Score 250 EC
+P04,Mankozeb,Dithane M-45
+P04,Klorotalonil,Daconil 75 WP
+P04,Propineb,Antracol 70 WP
+P04,Difenokonazol,Score 250 EC
+P05,Mankozeb,Dithane M-45
+P05,Mankozeb + Simoksanil,Curxanil 8/64 WP
+P05,Simoksanil,Cymoxil 50 WP
+P05,Dimetomorf,Acrobat 50 WP
+P05,Propamokarb + Fluopikolid,Infinito 687.5 SC
+P06,Benomil,Benhasil 50 WP
+P06,Mankozeb + Karbendazim,Delsene MX 80 WP
+P07,Benomil,Benhasil 50 WP
+P07,Tebukonazol,Folicur 430 SC
+P08,Tembaga hidroksida,"Copcide 77 WP, Kocide 54 WG"
+P08,Tembaga oksiklorida,Cuprarikh 50 WP
+P08,Tembaga oksi sulfat,Kuproxat 345 SC
+P09,Mankozeb,Dithane M-45
+P10,Tembaga hidroksida,"Copcide 77 WP, Kocide 54 WG"
+P14,Kalsium (Ca),"Pupuk Kalsium, Kapur Dolomit, Calci-Bor"
