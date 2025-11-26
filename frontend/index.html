@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tomat</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroTwin</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <div class="header-container">
   <header class="header">
-    <div class="logo">Tomat</div>
+    <div class="logo">AgroTwin</div>
 
     <nav class="nav-menu">
-      <a href="#" class="nav-item">Home</a>
-      <a href="#" class="nav-item">Track Your Plant</a>
-      <a href="#" class="nav-item">Check Plant Health</a>
-      <a href="#" class="nav-item">Treatment Guide</a>
+      <li><a href="index.html" class="nav-item">About</a></li>
+      <li><a href="TrackYourPlant.html" class="nav-item">Track Your Plant</a></li>
+      <li><a href="CheckPlantHealth.html" class="nav-item">Check Plant Health</a></li>
+      <li><a href="TreatmentGuide.html" class="nav-item">Treatment Guide</a></li>
     </nav>
 
     <a href="#" class="contact-btn">
       Contact Us
-      <span class="arrow">➜</span>
     </a>
   </header>
 </div>
+
 <!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-content">
-    <h1>Tomato Digital Twin Monitoring System</h1>
-    <p>Pantau kondisi tanaman, lakukan diagnosis, dan dapatkan solusi otomatis berbasis AI.</p>
-
+      <h1 class="hero-title">Asisten Cerdas <br> Perawatan Tanaman Tomat <span class="muted">— Powered by AgroTwin</span></h1>
+      <p class="hero-sub">Mulai perjalanan budidaya tomat Anda <br>dengan dukungan AI — mudah, cepat, dan informatif.</p>
     <div class="hero-buttons">
       <a href="#" class="btn-main">Track Your Plant</a>
       <a href="#" class="btn-secondary">Check Plant Health</a>
@@ -38,85 +37,221 @@
   </div>
 </section>
 
-<!-- OVERVIEW / WHAT THIS SYSTEM DOES -->
+<!-- ABOUT -->
 <section class="about-system">
+  <div class="about-text">
   <p>
-    Sistem ini dikembangkan untuk membantu monitoring tanaman tomat melalui pendekatan Digital Twin,
-    yaitu representasi digital yang merefleksikan kondisi nyata tanaman. Dengan integrasi AI reasoning,
-    sistem mampu mengenali gejala penyakit, membaca pola visual, dan memberikan prediksi kondisi kesehatan tanaman
-    secara otomatis. Cocok untuk riset, pembelajaran, maupun budidaya.
+    AgroTwin adalah platform sistem pakar yang menggabungkan AI reasoning dan digital twin
+    untuk membantu petani, pelajar, dan hobiis mendiagnosa penyakit tanaman tomat serta
+    menentukan perawatan yang tepat. Sistem ini menyediakan simulasi pertumbuhan, deteksi
+    gejala berbasis pengetahuan, dan panduan perawatan lengkap.
   </p>
+  </div>
+  <div class="about-media">
+      <img src="images/FarmTech.jpg" alt="Farm Teach"/>
+  </div>
 </section>
 
 <!-- HOW IT WORKS -->
 <section class="how-it-works">
-  <h2>How It Works</h2>
-
-  <div class="steps">
-    <div class="step">
-      <h3>1. Observe</h3>
-      <p>Amati kondisi tanaman melalui Digital Twin atau pilih gejala yang terlihat.</p>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-media"><img src="images/tomatoOnGreenhouse.jpg" alt="Observe"/></div>
+        <h3>Observe</h3>
+        <p>Amati kondisi tanaman melalui animasi digital twin atau pilih gejala yang terlihat.</p>
+      </div>
+      <div class="step">
+        <div class="step-media"><img src="images/GardenwithTab.jpg" alt="Analyze"/></div>
+        <h3>Analyze</h3>
+        <p>AI memproses gejala yang diinput berdasarkan basis pengetahuan penyakit tomat.</p>
+      </div>
+      <div class="step">
+        <div class="step-media"><img src="images/Gardening.jpg" alt="Treat"/></div>
+        <h3>Treat</h3>
+        <p>Sistem menampilkan diagnosis kemungkinan penyakit serta rekomendasi perawatan yang sesuai.</p>
+      </div>
     </div>
-
-    <div class="step">
-      <h3>2. Analyze</h3>
-      <p>AI memproses data visual & gejala untuk menentukan kemungkinan penyakit.</p>
-    </div>
-
-    <div class="step">
-      <h3>3. Treat</h3>
-      <p>Sistem memberikan diagnosis dan rekomendasi perawatan yang tepat.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
 <!-- WHY THIS SYSTEM MATTERS -->
-<section class="features">
-  <h2>Why This System Matters</h2>
+<section class="whythismatters">
+    <h2>Why This System Matters</h2>
 
-  <div class="feature-list">
-    <div class="feature-item">
-      <h3>Efisiensi Diagnosis</h3>
-      <p>Mengurangi waktu analisis penyakit dengan bantuan AI yang cepat & akurat.</p>
+    <!-- ROW 1: 3 vertical cards -->
+    <div class="why-top">
+        <figure class="why-card">
+            <img src="images/yellowblackleaf.jpg" alt="Efisiensi diagnosis">
+            <div class="why-overlay">
+                <h3>Efisiensi diagnosis</h3>
+                <p>AI reasoning mempercepat identifikasi penyakit tanpa foto atau alat khusus.</p>
+            </div>
+        </figure>
+
+        <figure class="why-card">
+            <img src="images/researcherplant.jpg" alt="Dukungan riset">
+            <div class="why-overlay">
+                <h3>Dukungan riset</h3>
+                <p>Cocok untuk penelitian agrikultur terkait pemodelan gejala & perilaku tanaman.</p>
+            </div>
+        </figure>
+
+        <figure class="why-card">
+            <img src="images/gardenTab.jpg" alt="Perawatan terarah">
+            <div class="why-overlay">
+                <h3>Perawatan terarah</h3>
+                <p>Rekomendasi yang tepat membantu mencegah kerugian hasil panen.</p>
+            </div>
+        </figure>
     </div>
 
-    <div class="feature-item">
-      <h3>Dukungan Riset</h3>
-      <p>Membantu penelitian agrikultur melalui data Digital Twin dan reasoning model.</p>
+    <!-- ROW 2: 2 horizontal cards -->
+    <div class="why-bottom">
+        <figure class="why-card">
+            <img src="images/kidswithdadGardening.jpg" alt="Akses untuk semua">
+            <div class="why-overlay">
+                <h3>Akses untuk semua</h3>
+                <p>Pelajar, petani, dan pemula bisa belajar budidaya tomat dengan panduan yang mudah.</p>
+            </div>
+        </figure>
+
+        <figure class="why-card">
+            <img src="images/BunchTomatoTree2.jpg" alt="Optimasi budidaya">
+            <div class="why-overlay">
+                <h3>Optimasi budidaya</h3>
+                <p>Membantu meningkatkan kesehatan, hasil, dan kualitas panen melalui data & simulasi.</p>
+            </div>
+        </figure>
     </div>
 
-    <div class="feature-item">
-      <h3>Perawatan Terarah</h3>
-      <p>Rekomendasi yang spesifik untuk mencegah kerugian panen dan meningkatkan produktivitas.</p>
-    </div>
-  </div>
 </section>
 
-<!-- FEATURES HIGHLIGHT (SECTION E) -->
-<section class="features">
-  <h2>Key Features</h2>
 
-  <div class="feature-list">
-    <div class="feature-item">
-      <h3>Digital Twin Visualization</h3>
-      <p>Pantau tanaman secara interaktif dengan representasi digital yang detail.</p>
+
+<!-- KEY FEATURES -->
+<section id="features" class="features container">
+  <h2 class="section-title">Key Features</h2>
+
+  <!-- Row 1 -->
+  <div class="feature-row">
+    <div class="feature-text">
+      <span class="kicker">Prototype</span>
+      <div class="feature-title">
+        <div class="feature-icon">
+          <!-- plant icon -->
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+            <path d="M12 21V14" stroke="#0b6b4b" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M6 14C6 10.7 8.7 8 12 8s6 2.7 6 6" stroke="#0b6b4b" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M8 7c0-2 1-4 4-4s4 2 4 4" stroke="#0b6b4b" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Prototype Digital Twin Simulation</h3>
+      </div>
+      <p>
+        Visualisasi pertumbuhan tomat dalam 6 tahap dan kondisi umum (sehat, layu, bercak).
+        Representatif untuk edukasi – mudah dimengerti oleh pelajar dan petani.
+      </p>
     </div>
 
-    <div class="feature-item">
-      <h3>AI-Powered Diagnosis</h3>
-      <p>Identifikasi penyakit secara otomatis berdasarkan visual & gejala yang dipilih.</p>
-    </div>
+    <figure class="feature-media">
+      <img src="images/PlantaShoot.jpg" alt="Tahap pertumbuhan tomat">
+    </figure>
+  </div>
 
-    <div class="feature-item">
-      <h3>Smart Treatment Guide</h3>
-      <p>Dapatkan solusi perawatan yang relevan dan mudah diterapkan.</p>
+  <!-- Row 2 -->
+  <div class="feature-row reverse">
+    <figure class="feature-media">
+      <img src="images/GardenwithTab(monitoring).jpg" alt="Petani memantau tanaman menggunakan tablet">
+    </figure>
+
+    <div class="feature-text">
+      <span class="kicker">AI</span>
+      <div class="feature-title">
+        <div class="feature-icon">
+          <!-- chip icon -->
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3v18" stroke="#0b6b4b" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 7h2v10H4V7zM18 7h2v10h-2V7z" stroke="#0b6b4b" stroke-width="1.6"/>
+            <path d="M7 7h10v10H7z" fill="rgba(11,107,75,0.05)" stroke="#0b6b4b" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <h3>AI-Powered Reasoning Diagnosis</h3>
+      </div>
+      <p>
+        Diagnosa berbasis pengetahuan: pengguna memilih gejala, lalu AI menyusun kemungkinan
+        penyakit tanpa harus mengunggah foto.
+      </p>
     </div>
   </div>
+
+  <!-- Row 3 -->
+  <div class="feature-row">
+    <div class="feature-text">
+      <span class="kicker">Treatment</span>
+      <div class="feature-title">
+        <div class="feature-icon">
+          <!-- droplet / leaf -->
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2s-5 6-5 10a5 5 0 0010 0c0-4-5-10-5-10z" stroke="#0b6b4b" stroke-width="1.6"/>
+            <path d="M8 14s1.5-1.2 4-1.2 4 1.2 4 1.2" stroke="#0b6b4b" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h3>Smart Treatment Guide</h3>
+      </div>
+      <p>
+        Rekomendasi perawatan & pencegahan yang terstruktur — menghemat waktu dan mengurangi
+        risiko salah penanganan.
+      </p>
+    </div>
+
+    <figure class="feature-media">
+      <img src="images/WomanWateringBunchPlant.jpg" alt="Perawatan tanaman">
+    </figure>
+  </div>
+
+  <!-- Row 4 -->
+  <div class="feature-row reverse">
+    <figure class="feature-media">
+      <img src="images/basketdifferenttomat.jpg" alt="Berbagai jenis tomat dalam keranjang">
+    </figure>
+
+    <div class="feature-text">
+      <span class="kicker">Knowledge</span>
+      <div class="feature-title">
+        <div class="feature-icon">
+          <!-- book icon -->
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+            <path d="M4 19.5V5.5A2 2 0 0 1 6 3.5h10a2 2 0 0 1 2 2v14" stroke="#0b6b4b" stroke-width="1.6"/>
+            <path d="M4 19.5h16" stroke="#0b6b4b" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <h3>Knowledge Base Organizer</h3>
+      </div>
+      <p>
+        Kumpulan informasi penyakit tomat yang disusun seperti buku panduan ringkas — mudah dicari
+        dan cocok untuk pembelajaran mandiri.
+      </p>
+    </div>
+  </div>
+
 </section>
-</body>
+
+
+  <!-- CLOSING / CTA -->
+  <section class="closing" style="background-image: url('images/Greenhouse2.jpg')">
+    <div class="closing-inner container">
+      <h2>Mulai perjalanan budidaya tomat Anda dengan dukungan AI</h2>
+      <p>Mudah, cepat, dan informatif.</p>
+      <a href="#track" class="btn-primary">Mulai Sekarang</a>
+    </div>
+  </section>
+
+
+
 <!-- FOOTER -->
 <footer class="footer">
-  <p>About Us | Contact | Version 1.0</p>
+  <p>AgroTwin © 2025 — Intelligent Plant Care</p>
 </footer>
 
+</body>
 </html>
