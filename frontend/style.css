@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -289,3 +290,718 @@ body::before {
     margin: 0 auto;
   }
 }
+=======
+/* ============================
+   RESET & BASE
+   ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  color: #1b1b1b;
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+/* ============================
+   NAVBAR / HEADER
+   ============================ */
+
+.header-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.header {
+  max-width: 1250px;
+  margin: auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #093d20; /* deep green */
+}
+
+/* NAV LINKS */
+.nav-menu {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-menu li {
+  list-style-type: none;
+}
+
+.nav-item {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #07371c;
+  transition: color 0.25s ease;
+}
+
+.nav-item:hover {
+  color: #46b877;
+}
+
+/* CONTACT BUTTON */
+.contact-btn {
+  padding: 3px 13px;
+  background: #145a32;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.contact-btn:hover {
+  background: #0f4b28;
+  transform: translateY(-2px);
+}
+
+/* ============================
+   HERO SECTION
+   ============================ */
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: url("images/GreenhouseTomat2.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: 90px; /* offset fixed navbar */
+}
+
+/* gradient overlay soft */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.22),
+    rgba(0,0,0,0.10),
+    rgba(0,0,0,0.28)
+  );
+}
+
+.hero-content {
+  position: relative;
+  max-width: 700px;
+  padding: 40px;
+  margin-left: 60px;
+  color: #ffffff;
+  text-shadow: 0px 4px 16px rgba(0,0,0,0.35);
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-title .muted {
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.hero-sub {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+/* HERO BUTTONS */
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-main,
+.btn-secondary {
+  padding: 12px 22px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.btn-main {
+  background: #ffffff;
+  color: #145a32;
+}
+
+.btn-main:hover {
+  background: #e8f5e9;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.5);
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ============================
+   ABOUT SECTION
+   ============================ */
+
+.about-system {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1200px;
+  padding: 100px 35px;
+  margin: 0 auto;
+}
+
+.about-text {
+  flex: 1;
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+.about-media {
+  flex: 1;
+}
+
+.about-media img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+
+@media (max-width: 992px) {
+  .about-system {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: 85vh;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .about-system {
+    padding: 60px 20px;
+  }
+}
+
+/* ============================
+   HOW IT WORKS SECTION
+   ============================ */
+
+.how-it-works {
+  padding: 80px 0;
+  background: #f7faf7; /* soft greenish-white */
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #145a32; /* deep green */
+}
+
+
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.step {
+  flex: 1;
+  min-width: 260px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.step-media {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+
+.step-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.step h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #1b5e20;
+}
+
+.step p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  padding: 0 10px;
+}
+
+/* =============================
+   RESPONSIVE ADJUSTMENTS
+   ============================= */
+
+@media (max-width: 900px) {
+  .steps {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step {
+    width: 90%;
+    max-width: 430px;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-it-works h2 {
+    font-size: 2rem;
+  }
+
+  .step {
+    padding: 20px;
+  }
+
+  .step-media {
+    height: 150px;
+  }
+}
+
+
+/* ============================
+   WHY THIS SYSTEM MATTERS — NEW DESIGN
+   ============================ */
+
+.whythismatters {
+  padding: 80px 0;
+  background: #ffffff;
+  text-align: center;
+}
+
+.whythismatters h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #145a32;
+}
+
+/* LAYOUT 3 ATAS */
+.why-top {
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* LAYOUT 2 BAWAH */
+.why-bottom {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+/* CARD */
+.why-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  height: 360px;
+}
+
+.why-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAY TEKS */
+.why-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 20px 26px;
+  background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.05));
+  color: #ffffff;
+  text-align: left;
+}
+
+.why-overlay h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.why-overlay p {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .why-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-top {
+    grid-template-columns: 1fr;
+  }
+  .why-bottom {
+    grid-template-columns: 1fr;
+  }
+  .why-card {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whythismatters h2 {
+    font-size: 2rem;
+  }
+  .why-card {
+    height: 260px;
+  }
+}
+
+
+
+/*feature*/
+
+:root {
+  --accent:#1fb27a;
+  --muted:#6b7280;
+  --radius:16px;
+  --max-img-height:330px;
+  --font-sans:"Poppins",system-ui;
+}
+
+/* WRAPPER */
+.features {
+  padding: 70px 0;
+}
+
+.features .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px; /* jarak kiri–kanan biar ga mentok */
+}
+
+/* SECTION TITLE */
+.section-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #1b5e20;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.lead {
+  color: var(--muted);
+  margin: 0 auto 55px;
+  max-width: 720px;
+  text-align: center;
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+/* ROWS */
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 80px;
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+.feature-row.reverse .feature-media {
+  order: 0;
+}
+
+.feature-row.reverse .feature-text {
+  order: 1;
+}
+
+/* TEXT AREA */
+.feature-text {
+  padding: 10px 6px;
+}
+
+.kicker {
+  display: inline-block;
+  background: #eefaf4;
+  color: var(--accent);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.feature-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.feature-title h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #144d2d;
+}
+
+.feature-text p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-top: 6px;
+}
+
+/* ICON */
+.feature-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(31,178,122,0.12), rgba(31,178,122,0.06));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(31,178,122,0.07);
+}
+
+/* IMAGES */
+.feature-media img {
+  width: 100%;
+  height: var(--max-img-height);
+  object-fit: cover;
+  border-radius: var(--radius);
+  transition: transform .45s ease;
+  box-shadow: 0 10px 28px rgba(12,20,25,0.06);
+}
+
+.feature-media img:hover {
+  transform: scale(1.025);
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+  .feature-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 70px;
+  }
+
+  .feature-media img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 540px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .feature-title h3 {
+    font-size: 21px;
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .feature-media img {
+    height: 200px;
+  }
+
+  .features .container {
+    padding: 0 20px;
+  }
+}
+
+
+
+
+
+/* ============================
+   CLOSING / CTA SECTION
+   ============================ */
+
+.closing {
+  width: 100%;
+  padding: 120px 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* overlay halus biar teks pop-up */
+.closing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.closing-inner {
+  position: relative;
+  max-width: 850px;
+  margin: 0 auto;
+  color: #ffffff;
+  text-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+
+.closing-inner h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.closing-inner p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 35px;
+}
+
+/* CTA BUTTON */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 28px;
+  color: #ffffff;
+  background: #2e7d32;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: #1b5e20;
+  transform: translateY(-3px);
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+
+.footer {
+  background: #f6f6f6;
+  text-align: center;
+  padding: 22px 0;
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 0;
+  border-top: 1px solid #e3e3e3;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+
+@media (max-width: 768px) {
+  .closing {
+    padding: 90px 20px;
+  }
+
+  .closing-inner h2 {
+    font-size: 2rem;
+  }
+
+  .closing-inner p {
+    font-size: 1.1rem;
+  }
+
+  .btn-primary {
+    font-size: 1rem;
+  }
+}
+>>>>>>> 02efa2c133355872e22af5ab3ca707432f8dd989
