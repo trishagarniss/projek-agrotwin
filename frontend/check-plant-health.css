@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: #e8f9f1;
+}
+
+.container {
+    width: 95%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    color: #0a8a75;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 120, 90, 0.1);
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #0a8a75;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+button {
+    width: 100%;
+    background: #0a8a75;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #0c9f87;
+}
+
+.result {
+    margin-top: 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 120, 90, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.result h2, .result h3 {
+    color: #0a8a75;
+}
+
+#produkList li {
+    margin-bottom: 6px;
+}

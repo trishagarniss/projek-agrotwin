@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AgroTwin</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/styles/treatment-guide.css">
 </head>
-<body>
+<body class="treatment-page">
 
-<div class="header-container">
-  <header class="header">
+<header class="header-container">
+  <div class="header">
     <div class="logo">AgroTwin</div>
 
     <nav class="nav-menu">
@@ -24,3 +25,76 @@
     </a>
   </header>
 </div>
+
+<section class="treatment-guide">
+
+  <!-- BAB 1: Horizontal Book Carousel -->
+  <div class="chapter chapter-1">
+    <h2 class="chapter-title">Dasar Budidaya Tomat</h2>
+
+    <div class="book-wrap">
+      <button class="book-nav prev" id="book-prev" aria-label="prev">&lt;</button>
+
+      <div class="book-view">
+        <div class="book-track" id="book-track">
+          <!-- slides dimasukkan lewat JS dari chapter-data.json -->
+        </div>
+      </div>
+
+      <button class="book-nav next" id="book-next" aria-label="next">&gt;</button>
+    </div>
+
+    <div class="book-footer">
+      <div id="book-indicator">1 / 6</div>
+    </div>
+  </div>
+
+  <!-- spasi -->
+  <div class="spacer"></div>
+
+  <!-- BAB 2: Penyakit (CSV -> tabel + pagination) -->
+  <div class="chapter chapter-2">
+    <h2 class="chapter-title">Daftar Penyakit Tomat</h2>
+
+    <div class="table-wrap">
+      <table id="disease-table" class="tg-table">
+        <!-- header & rows di-render oleh JS -->
+      </table>
+    </div>
+
+    <div class="pagination" id="disease-pagination"></div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- BAB 3: Hama (CSV -> tabel + pagination) -->
+  <div class="chapter chapter-3">
+    <h2 class="chapter-title">Hama Umum</h2>
+
+    <div class="table-wrap">
+      <table id="pest-table" class="tg-table">
+        <!-- header & rows di-render oleh JS -->
+      </table>
+    </div>
+
+    <div class="pagination" id="pest-pagination"></div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- BAB 4: Tips (Card Grid, dari JSON) -->
+  <div class="chapter chapter-4">
+    <h2 class="chapter-title">Tips Perawatan Harian</h2>
+
+    <div id="tips-grid" class="card-grid">
+      <!-- cards di-render lewat JS dari chapter-data.json -->
+    </div>
+  </div>
+
+</section>
+
+<link rel="stylesheet" href="treatment-guide.css">
+<script defer src="treatment-guide.js"></script>
+
+</body>
+</html>

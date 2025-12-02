@@ -1,0 +1,65 @@
+{
+  "chapter1": [
+    {
+      "title": "Kondisi Tumbuh Optimal",
+      "meta": "Iklim • Suhu • Tanah • pH",
+      "content": "<p><strong>Iklim & Ketinggian:</strong> Tomat dapat tumbuh di dataran rendah hingga tinggi (tergantung varietas), namun kondisi ideal berada pada ketinggian 200–700 m dpl.</p><p><strong>Suhu:</strong> Kisaran suhu yang baik adalah 20°C–27°C. Suhu di atas 32°C dapat memengaruhi warna buah dan menurunkan hasil.</p><p><strong>Tanah:</strong> Gembur, banyak humus, drainase baik.</p><p><strong>pH:</strong> Ideal 6.0–6.8 — beri dolomit jika terlalu asam.</p>"
+    },
+    {
+      "title": "Persemaian",
+      "meta": "Benih • Media • Penyemaian",
+      "content": "<p><strong>Persemaian:</strong> Tahap awal untuk menumbuhkan benih menjadi bibit kuat sebelum pindah tanam.</p><p><strong>Pemilihan Benih:</strong> Pilih benih varietas unggul, sehat, utuh dan tahan penyakit.</p><p><strong>Perlakuan:</strong> Rendam 5–6 jam dalam air hangat; benih yang tenggelam berkualitas baik.</p><p><strong>Media Semai:</strong> Campuran tanah:arang sekam:pupuk kandang = 1:1:1. Tanam 1 per lubang di tray/bedengan, tutup tipis, jaga kelembaban.</p>"
+    },
+    {
+      "title": "Pemindahan ke Polybag / Tanah",
+      "meta": "Waktu • Cara • Jarak",
+      "content": "<p><strong>Waktu Pindah:</strong> 25–30 HST; bibit punya 3–4 daun sejati.</p><p><strong>Waktu Tanam:</strong> Sore hari untuk adaptasi.</p><p><strong>Cara:</strong> Basahi bedengan semai jika mencabut; tanam hati-hati supaya akar tidak rusak; jangan biarkan daun menyentuh tanah.</p><p><strong>Jarak:</strong> Biasanya 40–50 cm dalam baris × 60–80 cm antar barisan (sesuaikan varietas).</p>"
+    },
+    {
+      "title": "Penyiraman",
+      "meta": "Frekuensi • Kebutuhan • Pencegahan",
+      "content": "<p><strong>Frekuensi:</strong> Di masa semai & awal, siram 2x sehari (pagi & sore).</p><p><strong>Kebutuhan Air:</strong> Penting saat fase vegetatif & generatif.</p><p><strong>Pencegahan:</strong> Hindari overwatering yang menyebabkan busuk akar; pastikan drainase.</p>"
+    },
+    {
+      "title": "Nutrisi / Pemupukan",
+      "meta": "Dasar & Susulan",
+      "content": "<p>Tomat butuh hara seimbang. Gunakan pupuk dasar (pupuk kandang/kompos & NPK sebelum tanam). Susulan: fase vegetatif → tinggi N (mis. Urea); fase generatif → tinggi P & K (SP36, KCl, atau NPK tinggi K). Berikan secara tugal di samping tanaman sesuai jadwal (mis. 10–15 HST).</p>"
+    },
+    {
+      "title": "Cahaya & Pengendalian Hama Dasar",
+      "meta": "Cahaya • Hama",
+      "content": "<p><strong>Cahaya:</strong> Butuh sinar matahari penuh minimal 10–12 jam/hari. Pilih lokasi tanpa naungan.</p><hr><p><strong>Pengendalian Hama Dasar (PHT):</strong></p><ul><li><strong>Ulat Buah (Helicoverpa):</strong> Melubangi buah — kumpulkan telur/ulat, tanam tanaman sela.</li><li><strong>Kutu Kebul (Bemisia):</strong> Daun keriting & penyebar virus — gunakan perangkap kuning, pangkas bagian terinfeksi.</li><li><strong>Penyakit Layu:</strong> Layu mendadak — gunakan varietas tahan, rotasi, perbaiki drainase.</li><li><strong>Busuk Buah:</strong> Bercak hitam & pembusukan — jaga kebersihan, hindari luka pada buah, beri cukup kalsium.</li></ul>"
+    }
+  ],
+
+  "chapter4": [
+    {
+      "title": "Penyiraman Tepat Waktu",
+      "desc": "Lakukan pagi & sore. Tanah lembap tapi tak becek; penyiraman sore lebih banyak untuk mengganti penguapan."
+    },
+    {
+      "title": "Penyulaman",
+      "desc": "Ganti tanaman mati maksimal 7–14 hari setelah tanam agar panen seragam."
+    },
+    {
+      "title": "Penyiangan",
+      "desc": "Singkirkan gulma 2–3 minggu sekali agar tidak bersaing nutrisi."
+    },
+    {
+      "title": "Pemangkasan (Pruning)",
+      "desc": "Buang tunas air & daun bawah yang menyentuh tanah untuk meningkatkan sirkulasi."
+    },
+    {
+      "title": "Pemasangan Penyangga",
+      "desc": "Pasang ajir sejak awal dan ikat batang utama secara longgar saat tumbuh."
+    },
+    {
+      "title": "Pengamatan Hama & Penyakit",
+      "desc": "Cek setiap hari untuk deteksi dini dan tindakan cepat."
+    },
+    {
+      "title": "Pemupukan Susulan",
+      "desc": "Vegetatif: tinggi N. Generatif: tinggi P & K serta Ca."
+    }
+  ]
+}

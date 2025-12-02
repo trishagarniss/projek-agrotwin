@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AgroTwin</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="trackyourplant.css" />
 </head>
-<body>
+<body class="trackyourplant">
 
 <div class="header-container">
   <header class="header">
@@ -24,3 +25,53 @@
     </a>
   </header>
 </div>
+
+
+
+ 
+    <h2 class="page-title">🌱 Track Your Plant</h2>
+
+    <div class="layout-container">
+
+        <!-- LEFT: TAHAP -->
+        <div class="left-panel">
+            <label for="plantStage">Tahap Pertumbuhan</label>
+            <select id="plantStage">
+                <option value="" disabled selected>Pilih Tahap</option>
+                <option value="tahap0">Benih</option>
+                <option value="tahap1">Tunas</option>
+                <option value="tahap2">Bibit</option>
+                <option value="tahap3">Pertumbuhan Daun</option>
+                <option value="tahap4">Berbunga</option>
+                <option value="tahap5">Buah Muda</option>
+                <option value="tahap6">Buah Matang</option>
+            </select>
+        </div>
+
+        <!-- CENTER: IMAGE -->
+        <div class="plant-view">
+            <img id="plantImage" src="Plant/prosespertumbuhan0.png" alt="plant-stage">
+        </div>
+
+        <!-- RIGHT: KONDISI -->
+        <div class="right-panel">
+            <label for="plantCondition">Kondisi Tanaman</label>
+            <select id="plantCondition">
+                <option value="" disabled selected>Pilih Tahap Dulu</option>
+            </select>
+        </div>
+
+    </div>
+
+<!-- SOLUTION PANEL -->
+<div id="solutionPanel" class="solution-panel hidden" role="region" aria-live="polite" aria-hidden="true">
+    <h3 id="solutionTitle">Solusi</h3>
+    <p id="solutionDesc"></p>
+
+    <button id="aiButton" type="button">Check With AI Reasoning</button>
+</div>
+
+<script src="trackyourplant.js"></script>
+
+</body>
+</html>

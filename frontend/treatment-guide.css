@@ -1,0 +1,251 @@
+/* treatment-guide.css */
+:root {
+  --bg: #E8F5E9;                /* background lembut sama seperti home */
+  --accent: #2E7D32;            /* hijau tombol utama (lebih konsisten) */
+  --dark: #1B5E20;              /* primary dark green home */
+  --muted: #6B7280;             /* abu-abu modern seperti home */
+  --card: #ffffff;
+  --radius: 14px;
+}
+
+/* background khusus content treatment guide */
+body.treatment-page {
+  background: var(--bg);
+}
+
+/* Font & warna mengikuti style home */
+.treatment-guide {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--dark);
+}
+
+/* Main wrapper */
+.treatment-guide {
+  width: 92%;
+  max-width: 1100px;
+  margin: 32px auto;
+  padding-bottom: 60px;
+  padding-top: 100px;
+}
+
+/* Chapter titles - disamakan dengan home style */
+.chapter {
+  margin-bottom: 60px;
+}
+
+.chapter-title {
+  font-size: 30px;               /* ukuran sama seperti title home */
+  text-align: center;            /* posisi tengah */
+  margin: 0 auto 22px auto;
+  color: var(--dark);
+  font-weight: 700;              /* lebih kuat seperti home */
+  letter-spacing: -0.3px;
+}
+
+/* Spacer */
+.spacer { height: 28px; }
+
+/* ----------------
+   BAB 1 - Book Carousel
+   ---------------- */
+.book-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+.book-nav {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: none;
+  background: var(--card);
+  box-shadow: 0 6px 18px rgba(20, 60, 20, 0.08);
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--dark);
+}
+
+.book-view {
+  flex: 1;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.92));
+}
+
+.book-track {
+  display: flex;
+  transition: transform 400ms cubic-bezier(.2, .9, .3, 1);
+  will-change: transform;
+}
+
+.book-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 22px;
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.slide-aside {
+  width: 240px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--card), #F1FFF1);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 6px 12px rgba(10, 40, 10, 0.04);
+}
+
+.slide-aside h4 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.slide-body {
+  flex: 1;
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.slide-body h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.slide-body p,
+.slide-body li {
+  color: #2f4f2f;
+  line-height: 1.5;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+/* page indicator */
+.book-footer {
+  margin-top: 12px;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+#book-indicator {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* ----------------
+   Tables (Bab 2 & 3)
+   ---------------- */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+.tg-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.tg-table thead th {
+  background: var(--accent);
+  color: white;
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.tg-table tbody td {
+  background: white;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f0f4f0;
+  vertical-align: top;
+  font-size: 14px;
+  color: #234323;
+}
+
+/* pagination */
+.pagination {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.page-btn {
+  background: #DFFCE3;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--dark);
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(20, 60, 20, 0.03);
+}
+
+.page-btn.active {
+  background: var(--accent);
+  color: white;
+}
+
+/* ----------------
+   BAB 4 - Card Grid
+   ---------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform .18s ease, box-shadow .18s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.07);
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  color: var(--dark);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card p {
+  margin: 0;
+  color: #345a34;
+  line-height: 1.45;
+  font-size: 14px;
+}
+
+/* responsive */
+@media (max-width: 880px) {
+  .slide-aside {
+    display: none;
+  }
+  .book-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}

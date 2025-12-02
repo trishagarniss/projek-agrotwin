@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AgroTwin</title>
 <link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="CheckPlantHealth.css" />
+<link rel="stylesheet" href="check-plant-health.css" />
 </head>
-<body>
+<body class="CheckPlantHealth">
 
 <div class="header-container">
   <header class="header">
@@ -26,89 +26,32 @@
   </header>
 </div>
 
+<div class="container">
 
-<!-- ================= PAGE WRAPPER ================= -->
-<section class="page">
+        <h1 class="title">Cek Kesehatan Tanaman Tomat</h1>
 
-  <!-- ===== Intro ===== -->
-  <div class="intro">
-    <h1>CHECK PLANT HEALTH</h1>
-    <p>Identifikasi gejala tanaman tomat dan dapatkan analisa AI secara cepat.</p>
-  </div>
+        <div class="card">
+            <label class="label">Pilih Gejala</label>
+            <select id="gejalaSelect">
+                <option value="">-- Pilih Gejala --</option>
+            </select>
 
-  <!-- ===== Checkbox Gejala ===== -->
-  <div class="section symptoms">
-    <h2>Gejala yang Terlihat</h2>
+            <button id="btnSubmit">Analisis Sekarang</button>
+        </div>
 
-    <div class="checkbox-list">
-<label><input type="checkbox" class="symptom-checkbox" value="daun_menguning"> Daun menguning</label>
-<label><input type="checkbox" class="symptom-checkbox" value="daun_keriting"> Daun keriting</label>
-<label><input type="checkbox" class="symptom-checkbox" value="bercak_coklat"> Bercak coklat</label>
-<label><input type="checkbox" class="symptom-checkbox" value="buah_busuk"> Buah busuk</label>
-<label><input type="checkbox" class="symptom-checkbox" value="batang_menghitam"> Batang menghitam</label>
-<label><input type="checkbox" class="symptom-checkbox" value="serangga"> Adanya serangga</label>
-<label><input type="checkbox" class="symptom-checkbox" value="tanaman_layu"> Tanaman layu</label>
-    </div>
-  </div>
+        <div id="result" class="result hidden">
+            <h2>Hasil Analisis</h2>
+            <p id="penyakit"></p>
 
-  <!-- ===== Sliders Dynamic ===== -->
-  <div id="sliderContainer" class="section sliders">
-    <!-- JS will insert slider groups here -->
-  </div>
+            <h3>Rekomendasi Penanganan</h3>
+            <p id="penanganan"></p>
 
-  <!-- ===== Environment ===== -->
-  <div class="section environment">
-    <h2>Kondisi Lingkungan</h2>
+            <h3>Rekomendasi Produk</h3>
+            <ul id="produkList"></ul>
+        </div>
 
-    <div class="env-row">
-      <label>Frekuensi penyiraman</label>
-      <select id="penyiraman">
-        <option value="normal">Normal</option>
-        <option value="kurang">Kurang</option>
-        <option value="berlebih">Berlebih</option>
-      </select>
     </div>
 
-    <div class="env-row">
-      <label>Intensitas cahaya</label>
-      <select id="cahaya">
-        <option value="cukup">Cukup</option>
-        <option value="kurang">Kurang</option>
-        <option value="berlebih">Terlalu Terang</option>
-      </select>
-    </div>
-
-    <div class="env-row">
-      <label>Nutrisi tanaman</label>
-      <select id="nutrisi">
-        <option value="normal">Normal</option>
-        <option value="kurang">Kurang</option>
-        <option value="berlebih">Berlebih</option>
-      </select>
-    </div>
-  </div>
-
-  <!-- ===== Button Analyze ===== -->
-  <div class="analyze-center">
-    <button id="analyzeBtn" class="analyze-btn">🔍 Analisa dengan AI</button>
-  </div>
-
-  <!-- ===== Output AI ===== -->
-  <div id="resultCard" class="result-card hidden">
-    <!-- JS fills this -->
-  </div>
-
-  <!-- ===== History ===== -->
-  <div class="section history">
-    <h2>Riwayat Analisa Terbaru</h2>
-    <ul id="historyList" class="history-list">
-      <!-- JS will fill -->
-    </ul>
-    <a href="#" class="see-all">Lihat Semua Riwayat</a>
-  </div>
-
-</section>
-<script src="CheckPlantHealth.js"></script>
-
+    <script src="check-plant-health.js"></script>
 </body>
 </html>
