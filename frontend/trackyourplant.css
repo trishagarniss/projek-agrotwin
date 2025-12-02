@@ -1,131 +1,141 @@
-/* ================================
-   PAGE BASE
-================================ */
+/* ============================
+   TRACK YOUR PLANT – PAGE STYLES
+   ============================ */
+
+/* Background halaman — TIDAK menimpa global font/color */
 body.trackyourplant {
-    margin: 0;
-    padding: 0;
-    font-family: "Inter", sans-serif;
-    background: #e9f7ec; /* hijau lembut */
-    color: #1b1b1b;
-    padding-top: 6%;
+    background: #E8F5E9;
+    padding-top: 120px; /* ruang untuk fixed header */
 }
 
-/* ================================
-   TITLE
-================================ */
-.page-title {
+/* Wrapper khusus halaman ini */
+.trackyourplant-section {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+    padding-bottom: 60px;
+}
+
+/* ============================
+   PAGE TITLE
+   ============================ */
+.trackyourplant-section .page-title {
     text-align: center;
     font-size: 30px;
     font-weight: 700;
-    color: #1b5e20;
-    padding: 25px 0 10px;
+    color: var(--primary);
+    margin-bottom: 20px;
 }
 
-/* ================================
+/* ============================
    LAYOUT WRAPPER
-================================ */
-.layout-container {
+   ============================ */
+.trackyourplant-section .layout-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 60px;
-    padding: 20px;
-    margin-top: 10px;
+    padding: 20px 0;
 }
 
-/* LEFT & RIGHT SETTINGS PANEL */
-.left-panel,
-.right-panel {
+/* ============================
+   LEFT & RIGHT SETTINGS PANEL
+   ============================ */
+.trackyourplant-section .left-panel,
+.trackyourplant-section .right-panel {
     display: flex;
     flex-direction: column;
     gap: 12px;
     width: 220px;
 }
 
-.left-panel label,
-.right-panel label {
+.trackyourplant-section label {
     font-weight: 600;
-    color: #144d2d;
+    color: var(--primary-dark);
 }
 
-select {
+/* ============================
+   SELECT DROPDOWNS
+   ============================ */
+.trackyourplant-section select {
     padding: 10px 12px;
     border-radius: 12px;
     border: 2px solid #bcd4be;
     background: #ffffff;
     font-size: 15px;
     cursor: pointer;
-    transition: 0.2s;
-}
-select:hover {
-    border-color: #1fb27a;
+    transition: 0.2s ease;
+    color: var(--text);
 }
 
-/* ================================
-   PLANT IMAGE
-================================ */
-.plant-view {
+.trackyourplant-section select:hover {
+    border-color: var(--accent);
+}
+
+/* ============================
+   CENTER PLANT IMAGE
+   ============================ */
+.trackyourplant-section .plant-view {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 }
 
-.plant-view img {
+.trackyourplant-section .plant-view img {
     width: 100%;
-    max-width: 350px;   /* 👈 SUPAYA TIDAK BESAR */
-    height: auto;
+    max-width: 350px;
     border-radius: 18px;
     filter: drop-shadow(0px 6px 12px rgba(0,0,0,0.15));
     transition: opacity 0.4s ease;
 }
 
-/* ================================
-   SOLUTION PANEL (AI OUTPUT)
-================================ */
-.solution-panel {
-    width: 85%;
+/* ============================
+   SOLUTION PANEL
+   ============================ */
+.trackyourplant-section .solution-panel {
+    width: 90%;
     max-width: 750px;
     background: #ffffff;
-    margin: 40px auto;
+    margin: 40px auto 0;
     padding: 25px;
-    border-radius: 22px;
-    box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    box-shadow: var(--shadow-1);
     transition: 0.3s ease;
 }
 
-.solution-panel.hidden {
+.trackyourplant-section .solution-panel.hidden {
     display: none;
 }
 
-.solution-panel h3 {
+.trackyourplant-section .solution-panel h3 {
     margin-top: 0;
-    color: #1b5e20;
     font-size: 22px;
     font-weight: 700;
-    padding-bottom: 10px;
+    color: var(--primary);
 }
 
-.solution-panel p {
-    line-height: 0.80;
-    color: #333;
+.trackyourplant-section .solution-panel p {
+    margin-top: 6px;
+    color: var(--text);
+    line-height: 1.4;
 }
 
-/* ================================
-   BUTTON
-================================ */
-#aiButton {
-    margin-top: 15px;
+/* ============================
+   AI BUTTON
+   ============================ */
+.trackyourplant-section #aiButton {
+    margin-top: 16px;
     padding: 12px 18px;
     border-radius: 14px;
     border: none;
-    background: #4C9F70;
+    background: var(--primary-2);
     color: white;
     font-weight: 600;
-    cursor: pointer;
     font-size: 15px;
+    cursor: pointer;
     transition: 0.25s ease;
 }
-#aiButton:hover {
-    background: #3b885d;
+
+.trackyourplant-section #aiButton:hover {
+    background: var(--primary-dark);
 }

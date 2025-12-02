@@ -52,19 +52,22 @@ const plantSolutions = {
         title: "Benih Kering",
         cause: "Penyimpanan tidak lembap atau benih terlalu lama disimpan.",
         impact: "Benih gagal berkecambah.",
-        fix: "Rendam benih 8–12 jam, gunakan benih yang lebih baru."
+        fix: "Rendam benih 8–12 jam, gunakan benih yang lebih baru.",
+        image: "Plant/BenihKering.png"
     },
     "Benih berjamur": {
         title: "Benih Berjamur",
         cause: "Media terlalu lembap dan tidak steril.",
         impact: "Benih mati sebelum tumbuh.",
-        fix: "Gunakan media steril, kurangi penyiraman, beri ventilasi."
+        fix: "Gunakan media steril, kurangi penyiraman, beri ventilasi.",
+        image: "Plant/BenihBerjamur.png"
     },
     "Benih tidak tumbuh": {
         title: "Benih Tidak Tumbuh",
         cause: "Benih rusak atau suhu tidak sesuai.",
         impact: "Tidak terjadi perkecambahan.",
-        fix: "Gunakan benih berkualitas dan jaga suhu 25–30°C."
+        fix: "Gunakan benih berkualitas dan jaga suhu 25–30°C.",
+        image: "Plant/BenihTidakTumbuh.png"
     },
 
     // =====================
@@ -247,16 +250,27 @@ conditionSelect.addEventListener("change", () => {
 
     const solusi = plantSolutions[kondisi];
 
-    if (!solusi) {
-        solutionTitle.textContent = kondisi;
-        solutionDesc.textContent = "Solusi belum tersedia.";
-    } else {
-        solutionTitle.textContent = solusi.title;
-        solutionDesc.innerHTML =
-            `<b>Penyebab:</b> ${solusi.cause}<br><br>` +
-            `<b>Dampak:</b> ${solusi.impact}<br><br>` +
-            `<b>Solusi:</b> ${solusi.fix}`;
-    }
+if (!solusi) {
+    solutionTitle.textContent = kondisi;
+    solutionDesc.textContent = "Solusi belum tersedia.";
+} else {
+    solutionTitle.textContent = solusi.title;
+    solutionDesc.innerHTML =
+        `<b>Penyebab:</b> ${solusi.cause}<br><br>` +
+        `<b>Dampak:</b> ${solusi.impact}<br><br>` +
+        `<b>Solusi:</b> ${solusi.fix}`;
 
-    solutionPanel.classList.remove("hidden");
+    // ==== GANTI GAMBAR KONDISI JIKA ADA ====
+    if (solusi.image) {
+        img.style.opacity = 0;
+        setTimeout(() => {
+            img.src = solusi.image;
+            img.style.opacity = 1;
+        }, 200);
+    }
+}
+
+solutionPanel.classList.remove("hidden");
+
+
 });
