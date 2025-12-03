@@ -1,21 +1,22 @@
-H01;Hama Tanah (Ulat Tanah, Jangkrik, Orong-orong);Kumpulkan hama manual pada malam hari. Jaga kebersihan kebun. Gunakan umpan beracun (dedak + gula + insektisida). Taburkan insektisida butiran (Karbofuran) di tanah atau semprot Profenofos (Curacron) / Deltametrin (Decis).,
-H02;Lalat Buah (Bactrocera spp.);Kumpulkan dan bakar buah terserang. Pasang perangkap likat kuning atau atraktan Methyl Eugenol (Petrogenol). Gunakan insektisida bahan aktif Sipermetrin atau Deltametrin (Decis).,,,
-H03;Ulat Buah Tomat (Helicoverpa armigera);Buang buah berlubang. Tanam tanaman perangkap (Tagetes/Jagung). Semprot insektisida jika serangan parah (misal: Profenofos/Curacron atau Deltametrin/Decis).,,,
-H04;Kutu Kebul (Bemisia tabaci);Vektor Virus Kuning. Rotasi tanaman. Pasang likat kuning. Semprot insektisida bahan aktif Abamectin (Demolish 18 EC, Agrimec, Abacel) atau Imidakloprid (Confidor, Abuki).
-H05;Ulat Grayak (Spodoptera litura);Sanitasi kebun. Olah tanah baik. Musnahkan kelompok telur/larva. Gunakan insektisida Metomil (Agrinate) atau Profenofos (Curacron).,,,
-H06;Pengorok Daun (Liriomyza huidobrensis);Pasang perangkap likat kuning. Musnahkan daun terserang. Gunakan insektisida sistemik berbahan aktif Abamektin (Agrimec) atau Siromazin (Trigard).,,,
-H07;Kutu Hijau (Aphids);Vektor virus. Gunakan mulsa perak. Bersihkan gulma inang. Semprot insektisida bahan aktif Abamectin (Demolish 18 EC, Agrimec) atau Imidakloprid (Confidor).,,
-P01;Rebah Kecambah (Rhizoctonia solani);Gunakan bibit sehat. Cabut tanaman sakit. Hindari tanah terlalu basah. Kocor fungisida Propamokarb (Previcur N) atau Mankozeb (Dithane) pada pangkal batang.,,,
-P02;Antraknosa (Patek/Busuk Kering);Sanitasi buah/daun sakit. Atur jarak tanam. Semprot fungisida: Propineb (Antracol), Difenokonazol (Score/Amcore), atau Azoksistrobin (Amistartop).,
-P03;Bercak Daun Septoria (Septoria lycopersici);Rotasi tanaman. Sanitasi sisa tanaman. Semprot fungisida Klorotalonil (Daconil) atau Mankozeb (Dithane).,,,
-P04;Bercak Daun Early Blight (Alternaria solani);Rotasi tanaman. Perbaiki drainase. Semprot fungisida Propineb (Antracol), Klorotalonil (Daconil), atau Difenokonazol (Score).,
-P05;Busuk Daun Late Blight (Phytophthora infestans);Tomat tidak tahan lembab basah. Kurangi kelembapan (pangkas daun). Semprot fungisida sistemik: Mankozeb+Simoksanil (Curzate) atau Dimetomorf (Acrobat).,,,
-P06;Bulukan Leaf Mold (Cladosporium fulfum);Penyakit area lembab. Atur sirkulasi udara (kurangi kelembapan). Gunakan fungisida Benomil (Benhasil).,,,
-P07;Layu Fusarium (Fusarium oxysporum);Gunakan varietas tahan. Trichoderma pada media tanam. Kocor fungisida Benomil (Benhasil) atau Tebukonazol (Folicur).,,,
-P08;Layu Bakteri (Ralstonia solanacearum);Cabut tanaman layu (jangan kocor air). Perbaiki drainase. Naikkan pH tanah dengan Kapur/Dolomit. Kocor bakterisida Tembaga Hidroksida (Kocide/Copcide).,,,
-P09;Busuk Buah (Phytophthora palmivora);Kurangi kelembapan sekitar buah. Beri alas pada buah agar tidak menyentuh tanah. Semprot fungisida Mankozeb (Dithane).,,,
-P10;Bercak Daun Bakteri (Xanthomonas perforans);Gunakan bibit sehat. Sanitasi. Perbaiki drainase. Hindari menyiram daun (sprinkle). Semprot bakterisida Tembaga Hidroksida (Kocide).,,,
-P11;Virus Kuning (TYLCV);Tidak ada obatnya. Cabut tanaman sakit (bakar). Kendalikan vektor (Kutu Kebul H04) dengan insektisida Abamectin (Demolish/Agrimec) atau Imidakloprid.,,,
-P12;Virus Mosaik Tomat (TMV);Menular lewat sentuhan/alat. Sterilkan alat potong. Cuci tangan. Cabut tanaman sakit. Kendalikan vektor (Aphids H07) dengan insektisida.,,,
-P13;Layu Bintik Tomat (TSWV);Cabut tanaman sakit. Kendalikan vektor (Thrips) dengan insektisida. Sanitasi gulma sekitar.,,,
-P14;Blossom End Rot (Busuk Ujung Buah);Bukan Hama/Penyakit, tapi defisiensi Kalsium akibat pH rendah/tanah kering. Beri Kapur/Dolomit. Jaga penyiraman stabil. Semprot pupuk Kalsium cair.,,
+id;nama;solusi
+H01;Hama Tanah (Ulat Tanah, Jangkrik, Orong-orong);"Kumpulkan hama manual pada malam hari. Jaga kebersihan kebun. Gunakan umpan beracun (dedak + gula + insektisida). Taburkan insektisida butiran (Karbofuran) di tanah atau semprot Profenofos (Curacron) / Deltametrin (Decis)."
+H02;Lalat Buah (Bactrocera spp.);"Kumpulkan dan bakar buah terserang. Pasang perangkap likat kuning atau atraktan Methyl Eugenol (Petrogenol). Gunakan insektisida bahan aktif Sipermetrin atau Deltametrin (Decis)."
+H03;Ulat Buah Tomat (Helicoverpa armigera);"Buang buah berlubang. Tanam tanaman perangkap (Tagetes/Jagung). Semprot insektisida jika serangan parah (misal: Profenofos/Curacron atau Deltametrin/Decis)."
+H04;Kutu Kebul (Bemisia tabaci);"Vektor Virus Kuning. Rotasi tanaman. Pasang likat kuning. Semprot insektisida bahan aktif Abamectin (Demolish 18 EC, Agrimec, Abacel) atau Imidakloprid (Confidor, Abuki)."
+H05;Ulat Grayak (Spodoptera litura);"Sanitasi kebun. Olah tanah baik. Musnahkan kelompok telur/larva. Gunakan insektisida Metomil (Agrinate) atau Profenofos (Curacron)."
+H06;Pengorok Daun (Liriomyza huidobrensis);"Pasang perangkap likat kuning. Musnahkan daun terserang. Gunakan insektisida sistemik berbahan aktif Abamektin (Agrimec) atau Siromazin (Trigard)."
+H07;Kutu Hijau (Aphids);"Vektor virus. Gunakan mulsa perak. Bersihkan gulma inang. Semprot insektisida bahan aktif Abamectin (Demolish 18 EC, Agrimec) atau Imidakloprid (Confidor)."
+P01;Rebah Kecambah (Rhizoctonia solani);"Gunakan bibit sehat. Cabut tanaman sakit. Hindari tanah terlalu basah. Kocor fungisida Propamokarb (Previcur N) atau Mankozeb (Dithane) pada pangkal batang."
+P02;Antraknosa (Patek/Busuk Kering);"Sanitasi buah/daun sakit. Atur jarak tanam. Semprot fungisida: Propineb (Antracol), Difenokonazol (Score/Amcore), atau Azoksistrobin (Amistartop)."
+P03;Bercak Daun Septoria (Septoria lycopersici);"Rotasi tanaman. Sanitasi sisa tanaman. Semprot fungisida Klorotalonil (Daconil) atau Mankozeb (Dithane)."
+P04;Bercak Daun Early Blight (Alternaria solani);"Rotasi tanaman. Perbaiki drainase. Semprot fungisida Propineb (Antracol), Klorotalonil (Daconil), atau Difenokonazol (Score)."
+P05;Busuk Daun Late Blight (Phytophthora infestans);"Tomat tidak tahan lembab basah. Kurangi kelembapan (pangkas daun). Semprot fungisida sistemik: Mankozeb+Simoksanil (Curzate) atau Dimetomorf (Acrobat)."
+P06;Bulukan Leaf Mold (Cladosporium fulfum);"Penyakit area lembab. Atur sirkulasi udara (kurangi kelembapan). Gunakan fungisida Benomil (Benhasil)."
+P07;Layu Fusarium (Fusarium oxysporum);"Gunakan varietas tahan. Trichoderma pada media tanam. Kocor fungisida Benomil (Benhasil) atau Tebukonazol (Folicur)."
+P08;Layu Bakteri (Ralstonia solanacearum);"Cabut tanaman layu (jangan kocor air). Perbaiki drainase. Naikkan pH tanah dengan Kapur/Dolomit. Kocor bakterisida Tembaga Hidroksida (Kocide/Copcide)."
+P09;Busuk Buah (Phytophthora palmivora);"Kurangi kelembapan sekitar buah. Beri alas pada buah agar tidak menyentuh tanah. Semprot fungisida Mankozeb (Dithane)."
+P10;Bercak Daun Bakteri (Xanthomonas perforans);"Gunakan bibit sehat. Sanitasi. Perbaiki drainase. Hindari menyiram daun (sprinkle). Semprot bakterisida Tembaga Hidroksida (Kocide)."
+P11;Virus Kuning (TYLCV);"Tidak ada obatnya. Cabut tanaman sakit (bakar). Kendalikan vektor (Kutu Kebul H04) dengan insektisida Abamectin (Demolish/Agrimec) atau Imidakloprid."
+P12;Virus Mosaik Tomat (TMV);"Menular lewat sentuhan/alat. Sterilkan alat potong. Cuci tangan. Cabut tanaman sakit. Kendalikan vektor (Aphids H07) dengan insektisida."
+P13;Layu Bintik Tomat (TSWV);"Cabut tanaman sakit. Kendalikan vektor (Thrips) dengan insektisida. Sanitasi gulma sekitar."
+P14;Blossom End Rot (Busuk Ujung Buah);"Bukan Hama/Penyakit, tapi defisiensi Kalsium akibat pH rendah/tanah kering. Beri Kapur/Dolomit. Jaga penyiraman stabil. Semprot pupuk Kalsium cair."

@@ -1,3 +1,4 @@
+aturan_id;gejala_id;opt_id;skor
 A01;G01;P08;0.6
 A02;G01;P14;0.9
 A03;G03;P05;0.8

@@ -225,21 +225,21 @@ document.addEventListener("DOMContentLoaded", async function(){
   // load JSON (bab 1 & 4)
   await loadChaptersAndRender();
 
-  // load disease CSV
+  // load penyakit CSV
   try {
-    const disease = await loadCSVFile("disease.csv");
-    renderTableGeneric(disease, "disease-table", 1, 5);
-    renderPaginationGeneric(disease, "disease-pagination", "disease-table", 5);
+    const penyakit = await loadCSVFile("penyakit.csv");
+    renderTableGeneric(penyakit, "penyakit-table", 1, 5);
+    renderPaginationGeneric(penyakit, "penyakit-pagination", "penyakit-table", 5);
   } catch (e) {
-    console.error("Error loading disease.csv", e);
+    console.error("Error loading penyakit.csv", e);
   }
 
-  // load pest CSV
+  // load hama CSV
   try {
-    const pest = await loadCSVFile("pest.csv");
-    renderTableGeneric(pest, "pest-table", 1, 5);
-    renderPaginationGeneric(pest, "pest-pagination", "pest-table", 5);
+    const hama = await loadCSVFile("hama.csv");
+    renderTableGeneric(hama, "hama-table", 1, 5);
+    renderPaginationGeneric(hama, "hama-pagination", "hama-table", 5);
   } catch (e) {
-    console.error("Error loading pest.csv", e);
+    console.error("Error loading hama.csv", e);
   }
 });

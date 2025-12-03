@@ -4,50 +4,60 @@ from .cf_engine import combine_cf
 
 class ReasoningEngine:
     """
-    This engine expects the server to pass loaded data (not paths).
+    Engine that performs CF accumulation for OPT items.
     - gejala_list: list of {id, nama}
     - opt_dict: dict kode -> {nama, solusi}
-    - rules_list: list of {gejala, opt, cf}
+    - rules_list: list of {id, gejala, opt, cf}
     - rekom_dict: dict opt -> [ {bahan_aktif, produk: [] }, ... ]
     """
 
     def __init__(self, gejala_list, opt_dict, rules_list, rekom_dict):
-        # store as provided
-        self.gejala = gejala_list
-        self.opt = opt_dict
-        self.rules = rules_list
-        self.rekom = rekom_dict
+        self.gejala = gejala_list or []
+        self.opt = opt_dict or {}
+        self.rules = rules_list or []
+        self.rekom = rekom_dict or {}
 
-        # create quick lookup for gejala names if needed
-        self.gejala_map = {g["id"]: g["nama"] for g in gejala_list}
+        # gejala_map: kode -> nama for convenience
+        self.gejala_map = {g["id"]: g.get("nama", "") for g in self.gejala if "id" in g}
 
     def diagnose(self, user_inputs):
         """
-        user_inputs: object mapping kode gejala -> user confidence (0..1)
-        or list of gejala codes (we'll accept both).
-        Returns: list of diagnosis sorted by confidence desc.
+        user_inputs: dict mapping kode_gejala -> confidence (0..1), or list of gejala codes (implying 1.0)
+        Returns: list of diagnoses sorted desc by confidence:
+          [{kode_opt, nama_opt, confidence (0..1), solusi, rekomendasi_produk}, ...]
         """
-        # normalize user_inputs into a dict: kode -> cf (0..1)
+        # normalize
         inputs = {}
         if isinstance(user_inputs, dict):
-            inputs = user_inputs
-        elif isinstance(user_inputs, list):
-            # if user only passed codes, assume 1.0 confidence each
+            # try convert values to float in [0,1]
+            for k, v in user_inputs.items():
+                try:
+                    val = float(v)
+                except Exception:
+                    continue
+                if val < 0:
+                    val = 0.0
+                if val > 1:
+                    val = 1.0
+                inputs[k] = val
+        elif isinstance(user_inputs, (list, tuple, set)):
             for k in user_inputs:
                 inputs[k] = 1.0
         else:
             return []
 
         cf_opt = {}
-        # iterate rules and accumulate contributions
         for rule in self.rules:
             kode_gejala = rule.get("gejala")
             if not kode_gejala:
                 continue
             if kode_gejala not in inputs:
                 continue
-            user_cf = float(inputs[kode_gejala])
-            rule_cf = float(rule.get("cf", 0.0))
+            try:
+                user_cf = float(inputs[kode_gejala])
+            except Exception:
+                continue
+            rule_cf = float(rule.get("cf", 0.0) or 0.0)
             contribution = user_cf * rule_cf
             opt_code = rule.get("opt")
             if not opt_code:
@@ -57,7 +67,6 @@ class ReasoningEngine:
             else:
                 cf_opt[opt_code] = combine_cf(cf_opt[opt_code], contribution)
 
-        # prepare results
         results = []
         for opt_code, score in cf_opt.items():
             opt_info = self.opt.get(opt_code, {"nama": opt_code, "solusi": ""})
@@ -69,6 +78,5 @@ class ReasoningEngine:
                 "rekomendasi_produk": self.rekom.get(opt_code, [])
             })
 
-        # sort by confidence desc
         results.sort(key=lambda x: x["confidence"], reverse=True)
         return results
