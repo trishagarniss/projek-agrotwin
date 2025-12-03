@@ -1,52 +1,108 @@
-// Load gejala ketika halaman dibuka
-document.addEventListener("DOMContentLoaded", () => {
-    // load gejala
-    fetch("http://127.0.0.1:5000/gejala")
-        .then(res => res.json())
-        .then(data => {
-            const select = document.getElementById("gejalaSelect");
-            data.forEach(g => {
-                const opt = document.createElement("option");
-                opt.value = g.id;
-                opt.textContent = `${g.id} - ${g.nama}`;
-                select.appendChild(opt);
-            });
-        });
+const API_BASE = "http://localhost:8000";
 
-    // pasang listener
-    document.getElementById("btnSubmit").addEventListener("click", () => {
-        const gejalaID = document.getElementById("gejalaSelect").value;
+let currentStep = 1;
+let answers = {
+    parameter: {},
+    gejala: {}
+};
 
-        if (!gejalaID) {
-            alert("Pilih gejala dulu!");
-            return;
+// STEP CONTROL
+function nextStep() {
+    document.getElementById(`step-${currentStep}`).classList.remove("active");
+    currentStep++;
+    document.getElementById(`step-${currentStep}`).classList.add("active");
+}
+
+// LOAD GEJALA FROM BACKEND
+async function loadGejala() {
+    const res = await fetch(API_BASE + "/gejala");
+    const data = await res.json();
+
+    const container = document.getElementById("gejala-container");
+    data.forEach(g => {
+        container.innerHTML += `
+            <div class="gejala-item">
+                <label>
+                    <input type="checkbox" id="${g.id}" onchange="toggleGejala('${g.id}')"> 
+                    ${g.nama}
+                </label>
+                <div class="slider-container" id="slider-${g.id}">
+                    Yakin (%): 
+                    <input type="range" min="0" max="100" value="0" 
+                        onchange="setConfidence('${g.id}', this.value)">
+                </div>
+            </div>
+        `;
+    });
+}
+
+loadGejala();
+
+// TOGGLE SLIDER FOR GEJALA
+function toggleGejala(id) {
+    const slider = document.getElementById(`slider-${id}`);
+    const checked = document.getElementById(id).checked;
+
+    slider.style.display = checked ? "block" : "none";
+
+    if (!checked) delete answers.gejala[id];
+}
+
+// SAVE CONFIDENCE
+function setConfidence(id, value) {
+    answers.gejala[id] = parseInt(value);
+}
+
+// REVIEW PAGE
+function goToReview() {
+    answers.parameter = {
+        ph: {
+            value: document.getElementById("ph").value,
+            conf: document.getElementById("ph_conf").value
+        },
+        kelembapan_udara: {
+            value: document.getElementById("hum_air").value,
+            conf: document.getElementById("hum_air_conf").value
+        },
+        suhu: {
+            value: document.getElementById("suhu").value,
+            conf: document.getElementById("suhu_conf").value
+        },
+        kelembapan_tanah: {
+            value: document.getElementById("hum_tanah").value,
+            conf: document.getElementById("hum_tanah_conf").value
         }
+    };
 
-        fetch("http://127.0.0.1:5000/diagnose", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ gejala: gejalaID })
-        })
-        .then(res => res.json())
-        .then(data => renderResult(data))
-        .catch(err => console.error(err));
+    const reviewDiv = document.getElementById("review");
+    reviewDiv.innerHTML = "";
+
+    // Parameter
+    Object.entries(answers.parameter).forEach(([k, v]) => {
+        reviewDiv.innerHTML += `
+            <p><strong>${k}</strong>: ${v.value} (Yakin ${v.conf}%)</p>
+        `;
     });
-});
 
-
-function renderResult(data) {
-    document.getElementById("result").classList.remove("hidden");
-
-    document.getElementById("penyakit").textContent =
-        `${data.kode_penyakit} - ${data.nama_penyakit}`;
-
-    document.getElementById("penanganan").textContent = data.penanganan;
-
-    const ul = document.getElementById("produkList");
-    ul.innerHTML = "";
-    data.rekomendasi_produk.forEach(p => {
-        const li = document.createElement("li");
-        li.textContent = `${p.bahan_aktif}: ${p.produk}`;
-        ul.appendChild(li);
+    // Gejala
+    Object.entries(answers.gejala).forEach(([k, v]) => {
+        reviewDiv.innerHTML += `<p>• ${k} — yakin ${v}%</p>`;
     });
+
+    nextStep();
+}
+
+// SEND TO BACKEND
+async function sendToBackend() {
+    const res = await fetch(API_BASE + "/diagnose", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(answers)
+    });
+
+    const data = await res.json();
+    document.getElementById("hasil").innerHTML =
+        `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+
+    nextStep();
 }

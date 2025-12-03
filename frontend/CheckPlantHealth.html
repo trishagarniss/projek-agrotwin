@@ -28,30 +28,68 @@
 
 <div class="container">
 
-        <h1 class="title">Cek Kesehatan Tanaman Tomat</h1>
+    <!-- STEP WRAPPER -->
+    <div id="step-container">
 
-        <div class="card">
-            <label class="label">Pilih Gejala</label>
-            <select id="gejalaSelect">
-                <option value="">-- Pilih Gejala --</option>
-            </select>
-
-            <button id="btnSubmit">Analisis Sekarang</button>
+        <!-- STEP 1 – pH Tanah -->
+        <div class="step active" id="step-1">
+            <h2>pH Tanah</h2>
+            <input type="number" id="ph" placeholder="Masukkan pH tanah..." />
+            <label>Seberapa yakin?</label>
+            <input type="range" id="ph_conf" min="0" max="100" value="0" />
+            <button onclick="nextStep()">Lanjut</button>
         </div>
 
-        <div id="result" class="result hidden">
-            <h2>Hasil Analisis</h2>
-            <p id="penyakit"></p>
+        <!-- STEP 2 – Kelembapan Udara -->
+        <div class="step" id="step-2">
+            <h2>Kelembapan Udara (%)</h2>
+            <input type="number" id="hum_air" placeholder="Masukkan kelembapan..." />
+            <label>Seberapa yakin?</label>
+            <input type="range" id="hum_air_conf" min="0" max="100" value="0" />
+            <button onclick="nextStep()">Lanjut</button>
+        </div>
 
-            <h3>Rekomendasi Penanganan</h3>
-            <p id="penanganan"></p>
+        <!-- STEP 3 – Suhu -->
+        <div class="step" id="step-3">
+            <h2>Suhu Udara (°C)</h2>
+            <input type="number" id="suhu" placeholder="Masukkan suhu..." />
+            <label>Seberapa yakin?</label>
+            <input type="range" id="suhu_conf" min="0" max="100" value="0" />
+            <button onclick="nextStep()">Lanjut</button>
+        </div>
 
-            <h3>Rekomendasi Produk</h3>
-            <ul id="produkList"></ul>
+        <!-- STEP 4 – Kelembapan Tanah -->
+        <div class="step" id="step-4">
+            <h2>Kelembapan Tanah (%)</h2>
+            <input type="number" id="hum_tanah" placeholder="Masukkan kelembapan tanah..." />
+            <label>Seberapa yakin?</label>
+            <input type="range" id="hum_tanah_conf" min="0" max="100" value="0" />
+            <button onclick="nextStep()">Lanjut</button>
+        </div>
+
+        <!-- STEP 5 – Gejala -->
+        <div class="step" id="step-5">
+            <h2>Pilih Gejala</h2>
+            <div id="gejala-container"></div>
+            <button onclick="goToReview()">Review</button>
+        </div>
+
+        <!-- STEP 6 – Review -->
+        <div class="step" id="step-6">
+            <h2>Review Data</h2>
+            <div id="review"></div>
+            <button onclick="sendToBackend()">Kirim ke Backend</button>
+        </div>
+
+        <!-- STEP 7 – Hasil Diagnosa -->
+        <div class="step" id="step-7">
+            <h2>Hasil Diagnosa</h2>
+            <div id="hasil"></div>
         </div>
 
     </div>
+</div>
 
-    <script src="check-plant-health.js"></script>
+<script src="check-plant-health.js"></script>
 </body>
 </html>
