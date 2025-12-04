@@ -68,6 +68,7 @@ label {
 }
 
 input[type="range"] {
+    appearance: none;
     -webkit-appearance: none;
     width: 100%;
     height: 8px;
@@ -321,4 +322,40 @@ button:active {
     font-size: 0.9rem;
     color: #666;
     font-style: italic;
+}
+
+/* --- GAYA TOMBOL NAVIGASI (PREV & NEXT) --- */
+.btn-group {
+    display: flex;
+    gap: 15px; /* Jarak antar tombol */
+    margin-top: 25px;
+}
+
+.btn-group button {
+    margin-top: 0; /* Reset margin bawaan */
+    width: 100%;
+}
+
+/* Tombol Kembali (Warna Abu/Netral) */
+.btn-back {
+    background: #757575 !important; /* Warna abu-abu */
+    color: white;
+}
+
+.btn-back:hover {
+    background: #616161 !important;
+}
+
+/* Label Persentase di atas Slider */
+.slider-label-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.percent-val {
+    color: #2e7d32; /* Warna Hijau */
+    font-weight: 800;
 }

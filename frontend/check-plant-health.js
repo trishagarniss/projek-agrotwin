@@ -55,10 +55,16 @@ async function loadGejala() {
                         <input type="checkbox" id="${g.id}" onchange="toggleGejala('${g.id}')"> 
                         ${g.nama}
                     </label>
+                    
                     <div class="slider-container" id="slider-${g.id}">
-                        Yakin (%): 
+                        <div style="display:flex; justify-content:space-between; font-size:0.9em; margin-bottom:5px;">
+                            <span>Tingkat Keyakinan:</span>
+                            <span id="val-${g.id}" style="font-weight:bold; color:#2e7d32;">0%</span>
+                        </div>
+                        
                         <input type="range" min="0" max="100" value="0" 
-                            onchange="setConfidence('${g.id}', this.value)">
+                            onchange="setConfidence('${g.id}', this.value)"
+                            oninput="document.getElementById('val-${g.id}').textContent = this.value + '%'">
                     </div>
                 </div>
             `;
@@ -163,6 +169,25 @@ function goToReview() {
     nextStep(); // Lanjut ke STEP 6 (Review)
 }
 
+// --- 1. FUNGSI UNTUK TOMBOL KEMBALI ---
+function prevStep() {
+    if (currentStep > 1) {
+        document.getElementById(`step-${currentStep}`).classList.remove("active");
+        currentStep--;
+        document.getElementById(`step-${currentStep}`).classList.add("active");
+    }
+}
+
+// --- 2. FUNGSI UPDATE PERSEN SLIDER (Manual Input) ---
+function updateSliderVal(sliderId) {
+    const slider = document.getElementById(sliderId);
+    const spanId = sliderId + "_val"; // ID span target, misal: 'ph_conf_val'
+    const display = document.getElementById(spanId);
+    
+    if (display) {
+        display.textContent = slider.value + "%";
+    }
+}
 
 // SEND TO BACKEND (DENGAN LOGIKA PARAMETER & TRY...CATCH)
 async function sendToBackend() {
@@ -241,9 +266,41 @@ async function sendToBackend() {
             let outputHtml = "";
 
             data.forEach(d => {
-                        if (d.confidence > 0) {
-                            hasResults = true;
-                            outputHtml += `<div class="result-item"><h5>${d.nama_opt} (${(d.confidence * 100).toFixed(2)}%)</h5><p><strong>Solusi:</strong> ${d.solusi}</p>${d.rekomendasi_produk && d.rekomendasi_produk.length > 0 ? `<h6>Rekomendasi Produk Kimia:</h6><ul>${d.rekomendasi_produk.map(r => `<li>${r.bahan_aktif}: ${r.produk.join(", ")}</li>`).join("")}</ul>` : ''}</div>`;
+                if (d.confidence > 0) {
+                    hasResults = true;
+
+                    let rekomenHtml = "";
+                    if (d.rekomendasi_produk && d.rekomendasi_produk.length > 0) {
+                        rekomenHtml = `
+                        <div class="chem-box">
+                            <span class="section-label" style="color:#e65100; display:block; margin-bottom:5px;">🧪 Rekomendasi Kimia:</span>
+                            <ul class="chem-list">
+                                ${d.rekomendasi_produk.map(r => `
+                                    <li style="margin-bottom:5px; border-bottom:1px dashed #ffcc80; padding-bottom:5px;">
+                                        <b style="color:#d84315">${r.bahan_aktif}</b>
+                                        <br>
+                                        <span style="font-size:0.9em; color:#555;">(Contoh: ${r.produk.join(", ")})</span>
+                                    </li>
+                                `).join("")}
+                            </ul>
+                        </div>`;
+                    }
+
+                    outputHtml += `
+                    <div class="diagnosis-card">
+                        <div class="card-header">
+                            <span class="disease-title">${d.nama_opt}</span>
+                            <span class="confidence-badge">${(d.confidence * 100).toFixed(1)}% Yakin</span>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div style="margin-bottom:15px;">
+                                <span class="section-label">💡 Solusi & Pencegahan:</span>
+                                <p style="margin-top:5px; line-height:1.5; color:#444;">${d.solusi}</p>
+                            </div>
+                            
+                            ${rekomenHtml} </div>
+                    </div>`;
                 }
             });
 
