@@ -1,19 +1,41 @@
 /* ============================
-   TRACK YOUR PLANT – PAGE STYLES
+   VARIABLES
    ============================ */
-
-/* Background halaman — TIDAK menimpa global font/color */
-body.trackyourplant {
-    background: #E8F5E9;
-    padding-top: 120px; /* ruang untuk fixed header */
+:root {
+    --primary: #2e7d32;       /* Hijau Tua */
+    --primary-light: #4caf50; /* Hijau Terang */
+    --accent: #ff9800;        /* Oranye untuk Solusi */
+    --bg-color: #E8F5E9;      /* Background Halaman (Dipertahankan) */
+    --text-main: #333;
+    --text-light: #555;
+    --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 12px 25px rgba(46, 125, 50, 0.15);
 }
 
-/* Wrapper khusus halaman ini */
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-main);
+}
+
+/* ============================
+   PAGE STYLES
+   ============================ */
+
+/* Background halaman — Dipertahankan sesuai permintaan */
+body.trackyourplant {
+    background: var(--bg-color);
+    padding-top: 120px; /* Ruang untuk header fixed */
+    min-height: 100vh;
+}
+
+/* Wrapper utama */
 .trackyourplant-section {
     width: 92%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
 }
 
 /* ============================
@@ -21,10 +43,12 @@ body.trackyourplant {
    ============================ */
 .trackyourplant-section .page-title {
     text-align: center;
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 800;
     color: var(--primary);
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
 }
 
 /* ============================
@@ -33,43 +57,62 @@ body.trackyourplant {
 .trackyourplant-section .layout-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 60px;
+    align-items: center; /* Vertikal center agar rapi */
+    gap: 40px;
     padding: 20px 0;
+    /* Tidak ada background putih di sini agar tanaman tidak 'dikotakkan' */
 }
 
 /* ============================
-   LEFT & RIGHT SETTINGS PANEL
+   PANELS (LEFT & RIGHT)
    ============================ */
 .trackyourplant-section .left-panel,
 .trackyourplant-section .right-panel {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    width: 220px;
+    gap: 15px;
+    width: 260px; /* Sedikit diperlebar agar lega */
+    z-index: 2;
 }
 
 .trackyourplant-section label {
-    font-weight: 600;
-    color: var(--primary-dark);
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-left: 5px;
 }
 
 /* ============================
-   SELECT DROPDOWNS
+   SELECT DROPDOWNS (Modern)
    ============================ */
 .trackyourplant-section select {
-    padding: 10px 12px;
-    border-radius: 12px;
-    border: 2px solid #bcd4be;
+    padding: 14px 18px;
+    border-radius: 15px;
+    border: 2px solid transparent; /* Border transparan default */
     background: #ffffff;
-    font-size: 15px;
+    font-size: 1rem;
+    color: var(--text-main);
     cursor: pointer;
-    transition: 0.2s ease;
-    color: var(--text);
+    box-shadow: var(--shadow-soft); /* Bayangan lembut */
+    transition: all 0.3s ease;
+    outline: none;
+    
+    /* Custom Arrow (Opsional, agar terlihat modern di semua browser) */
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%232e7d32%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
 }
 
 .trackyourplant-section select:hover {
-    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.trackyourplant-section select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
 }
 
 /* ============================
@@ -77,65 +120,119 @@ body.trackyourplant {
    ============================ */
 .trackyourplant-section .plant-view {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex: 1; /* Mengisi ruang tengah */
+    padding: 0 20px;
 }
 
 .trackyourplant-section .plant-view img {
     width: 100%;
-    max-width: 350px;
-    border-radius: 18px;
-    filter: drop-shadow(0px 6px 12px rgba(0,0,0,0.15));
-    transition: opacity 0.4s ease;
+    max-width: 420px; /* Diperbesar sedikit agar fokus */
+    height: auto;
+    border-radius: 25px;
+    
+    /* Efek bayangan agar 'pop-up' tapi tidak dikotakkan */
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+    
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.trackyourplant-section .plant-view img:hover {
+    transform: scale(1.05); /* Efek zoom halus saat di-hover */
 }
 
 /* ============================
    SOLUTION PANEL
    ============================ */
 .trackyourplant-section .solution-panel {
-    width: 90%;
-    max-width: 750px;
+    width: 100%;
+    max-width: 800px;
     background: #ffffff;
-    margin: 40px auto 0;
-    padding: 25px;
+    margin: 50px auto 0;
+    padding: 35px;
     border-radius: 20px;
-    box-shadow: var(--shadow-1);
-    transition: 0.3s ease;
+    box-shadow: var(--shadow-soft);
+    border-left: 6px solid var(--accent); /* Aksen oranye penanda solusi */
+    transition: all 0.4s ease;
+    opacity: 1;
+    transform: translateY(0);
 }
 
+/* Animasi Muncul */
 .trackyourplant-section .solution-panel.hidden {
-    display: none;
+    display: none; /* Tetap di-hide saat awal */
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .trackyourplant-section .solution-panel h3 {
     margin-top: 0;
-    font-size: 22px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ikon Lampu sebelum judul solusi */
+.trackyourplant-section .solution-panel h3::before {
+    content: '💡';
 }
 
 .trackyourplant-section .solution-panel p {
-    margin-top: 6px;
-    color: var(--text);
-    line-height: 0.8;
+    margin-top: 15px;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 1.05rem;
 }
 
 /* ============================
-   AI BUTTON
+   AI BUTTON (GRADIENT STYLE)
    ============================ */
 .trackyourplant-section #aiButton {
-    margin-top: 16px;
-    padding: 12px 18px;
-    border-radius: 14px;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+    border-radius: 50px;
     border: none;
-    background: var(--primary-2);
+    
+    /* Gradasi Hijau Modern */
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: white;
-    font-weight: 600;
-    font-size: 15px;
+    
+    font-weight: 700;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.25s ease;
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .trackyourplant-section #aiButton:hover {
-    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(46, 125, 50, 0.4);
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+}
+
+/* ============================
+   RESPONSIVE (MOBILE)
+   ============================ */
+@media (max-width: 900px) {
+    .trackyourplant-section .layout-container {
+        flex-direction: column; /* Tumpuk ke bawah di HP */
+        gap: 30px;
+    }
+
+    .trackyourplant-section .plant-view {
+        order: -1; /* Gambar pindah ke paling atas */
+        margin-bottom: 10px;
+    }
+
+    .trackyourplant-section .left-panel,
+    .trackyourplant-section .right-panel {
+        width: 100%; /* Lebar penuh di HP */
+    }
 }
