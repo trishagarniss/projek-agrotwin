@@ -24,25 +24,57 @@ function nextStep() {
 
 // LOAD GEJALA FROM BACKEND
 async function loadGejala() {
-    const res = await fetch(API_BASE + "/gejala");
-    const data = await res.json();
+    try {
+        const res = await fetch(API_BASE + "/gejala");
+        if (!res.ok) {
+            // Tangani jika server mati atau endpoint tidak ditemukan
+            throw new Error(`Gagal mengambil data gejala: ${res.status}`);
+        }
 
-    const container = document.getElementById("gejala-container");
-    data.forEach(g => {
-        container.innerHTML += `
-            <div class="gejala-item">
-                <label>
-                    <input type="checkbox" id="${g.id}" onchange="toggleGejala('${g.id}')"> 
-                    ${g.nama}
-                </label>
-                <div class="slider-container" id="slider-${g.id}">
-                    Yakin (%): 
-                    <input type="range" min="0" max="100" value="0" 
-                        onchange="setConfidence('${g.id}', this.value)">
+        const data = await res.json();
+
+        // Cek apakah data valid dan merupakan array
+        if (!Array.isArray(data) || data.length === 0) {
+            console.error("Data gejala kosong atau tidak valid.");
+            return;
+        }
+
+        // HILANGKAN 7 DATA PERTAMA (G01 hingga G07)
+        // Kita asumsikan data gejala dari backend sudah terurut (G01, G02, ..., G07, G08, ...)
+        // slice(7) akan mengambil elemen mulai dari indeks ke-7 (yaitu elemen ke-8, yang seharusnya G08)
+        const gejalaManual = data.slice(7);
+
+        const container = document.getElementById("gejala-container");
+        container.innerHTML = ""; // Bersihkan container sebelum mengisi
+
+        // Loop hanya untuk gejala manual (G08 dan seterusnya)
+        gejalaManual.forEach(g => {
+            container.innerHTML += `
+                <div class="gejala-item">
+                    <label>
+                        <input type="checkbox" id="${g.id}" onchange="toggleGejala('${g.id}')"> 
+                        ${g.nama}
+                    </label>
+                    <div class="slider-container" id="slider-${g.id}">
+                        Yakin (%): 
+                        <input type="range" min="0" max="100" value="0" 
+                            onchange="setConfidence('${g.id}', this.value)">
+                    </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        });
+
+        // Jika container masih kosong (misal data hanya ada G01-G07)
+        if (gejalaManual.length === 0) {
+            container.innerHTML = "<p>Tidak ada gejala manual yang tersedia.</p>";
+        }
+
+    } catch (error) {
+        // Ini mengatasi masalah Gejala tidak keluar.
+        console.error("Error saat memuat gejala:", error);
+        const container = document.getElementById("gejala-container");
+        container.innerHTML = `<p style="color: red;">Gagal memuat gejala dari server (${API_BASE}). Pastikan server berjalan.</p>`;
+    }
 }
 
 loadGejala();
