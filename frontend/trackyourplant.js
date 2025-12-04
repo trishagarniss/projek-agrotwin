@@ -77,13 +77,15 @@ const plantSolutions = {
         title: "Tunas Layu",
         cause: "Kurang cahaya atau penyiraman tidak tepat.",
         impact: "Tunas berhenti tumbuh.",
-        fix: "Tambahkan cahaya 6–8 jam & atur penyiraman."
+        fix: "Tambahkan cahaya 6–8 jam & atur penyiraman.",
+        image: "Plant/TunasLayu.png"
     },
     "Tunas membusuk": {
         title: "Tunas Membusuk",
         cause: "Kelembapan berlebih meningkatkan jamur.",
         impact: "Tunas mati tiba-tiba.",
-        fix: "Kurangi penyiraman & tingkatkan sirkulasi udara."
+        fix: "Kurangi penyiraman & tingkatkan sirkulasi udara.",
+        image: "Plant/TunasMembusuk.png"
     },
     "Serangan cacing kecil": {
         title: "Serangan Cacing",
@@ -165,19 +167,22 @@ const plantSolutions = {
         title: "Busuk Ujung Buah (Blossom End Rot)",
         cause: "Kekurangan kalsium.",
         impact: "Ujung buah hitam dan keras.",
-        fix: "Tambahkan Ca + stabilkan penyiraman."
+        fix: "Tambahkan Ca + stabilkan penyiraman.",
+        image: "Plant/BusukUjungBuah.png"
     },
     "Bercak kecoklatan": {
         title: "Bercak Coklat",
         cause: "Jamur pada kulit buah.",
         impact: "Buah cacat.",
-        fix: "Semprot fungisida organik dan jaga sirkulasi."
+        fix: "Semprot fungisida organik dan jaga sirkulasi.",
+        image: "Plant/BercakKecoklatan.png"
     },
     "Lalat buah": {
         title: "Lalat Buah",
         cause: "Hama bertelur pada kulit buah.",
         impact: "Buah berlubang & busuk.",
-        fix: "Gunakan perangkap metil eugenol atau bungkus buah."
+        fix: "Gunakan perangkap metil eugenol atau bungkus buah.",
+        image: "Plant/LalatBuah.png"
     },
 
     // =====================
@@ -187,19 +192,22 @@ const plantSolutions = {
         title: "Buah Pecah",
         cause: "Perubahan penyiraman drastis.",
         impact: "Buah rusak dan mudah busuk.",
-        fix: "Jaga penyiraman stabil."
+        fix: "Jaga penyiraman stabil.",
+        image: "Plant/BuahPecah.png"
     },
     "Kulit buah rusak": {
         title: "Kulit Buah Rusak",
         cause: "Hama kecil atau gesekan.",
         impact: "Kualitas buah menurun.",
-        fix: "Bungkus buah dan kontrol hama."
+        fix: "Bungkus buah dan kontrol hama.",
+        image: "Plant/KulitBuahRusak.png"
     },
     "Busuk penyimpanan": {
         title: "Busuk Penyimpanan",
         cause: "Jamur pascapanen.",
         impact: "Buah tidak layak konsumsi.",
-        fix: "Panen lebih awal dan jangan menyiram berlebihan menjelang panen."
+        fix: "Panen lebih awal dan jangan menyiram berlebihan menjelang panen.",
+        image: "Plant/BusukPenyimpanan.png"
     }
 };
 
