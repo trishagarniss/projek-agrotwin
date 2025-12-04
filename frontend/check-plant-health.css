@@ -1,55 +1,324 @@
+/* === GLOBAL STYLES === */
 body {
-    font-family: "Inter", sans-serif;
-    background: #f0f5f0;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%); 
     margin: 0;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container {
     width: 90%;
-    max-width: 500px;
-    margin: auto;
-    padding-top: 40px;
+    max-width: 550px;
+    background: #ffffff; 
+    
+    /* SOLUSI AGAR TIDAK MEPET ATAS */
+    margin-top: 120px; 
+    margin-bottom: 60px;
+    
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid #2e7d32;
+}
+
+h2 {
+    color: #2e7d32;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input[type="number"], 
+input[type="text"],
+select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+    box-sizing: border-box; 
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: #43a047; 
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(67, 160, 71, 0.2);
+}
+
+label {
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #c8e6c9;
+    border-radius: 5px;
+    outline: none;
+    margin: 10px 0 30px;
+}
+
+/* Pegangan Slider (Thumb) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #2e7d32;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: transform 0.1s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #2e7d32, #43a047);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+    margin-top: 10px;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #1b5e20, #2e7d32);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#gejala-container {
+    max-height: 350px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 5px;
+}
+
+#gejala-container::-webkit-scrollbar {
+    width: 8px;
+}
+#gejala-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.gejala-item {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background: #fff;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.gejala-item:hover {
+    border-color: #81c784;
+    background: #f1f8e9;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.gejala-item input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 15px;
+    accent-color: #2e7d32;
+    cursor: pointer;
+}
+
+.gejala-item label {
+    cursor: pointer;
+    margin-bottom: 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.slider-container {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+    animation: slideDown 0.3s ease;
+}
+
+#hasil {
+    text-align: center;
+}
+
+.result-card {
+    background: #e8f5e9;
+    border-left: 5px solid #2e7d32;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.result-card h3 {
+    color: #1b5e20;
+    margin-top: 0;
 }
 
 .step {
     display: none;
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .step.active {
     display: block;
 }
 
-h2 {
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 25px;
+        margin-top: 100px;
+    }
+    
+    h2 {
+        font-size: 22px;
+    }
+}
+
+/* === DESAIN HASIL DIAGNOSA === */
+.diagnosis-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-left: 6px solid #2e7d32; /* Aksen hijau di kiri */
+    animation: fadeIn 0.5s ease;
+}
+
+.card-header {
+    background: #f1f8e9;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e8f5e9;
+}
+
+.disease-title {
+    font-size: 1.2rem;
+    font-weight: 700;
     color: #1b5e20;
 }
 
-button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    border: none;
+.confidence-badge {
     background: #2e7d32;
     color: white;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
-button:hover {
-    background: #256628;
+.card-body {
+    padding: 20px;
 }
 
-.gejala-item {
-    padding: 10px;
+.info-section {
+    margin-bottom: 15px;
+}
+
+.section-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #555;
+    font-weight: 700;
     margin-bottom: 8px;
-    border-radius: 8px;
-    background: #eef9ee;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 4px;
+    display: inline-block;
 }
 
-.slider-container {
-    display: none;
-    margin-top: 8px;
+.info-section p {
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+/* Styling Khusus Rekomendasi Kimia */
+.info-section.chemical {
+    background: #fff3e0; /* Latar oranye tipis untuk peringatan kimia */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ffe0b2;
+}
+
+.chem-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chem-list li {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #ffcc80;
+}
+
+.chem-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.bahan-aktif {
+    display: block;
+    font-weight: 700;
+    color: #e65100;
+}
+
+.merk-dagang {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
 }
