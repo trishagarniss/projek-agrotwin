@@ -33,13 +33,15 @@ class ReasoningEngine:
             for k, v in user_inputs.items():
                 try:
                     val = float(v)
-                except Exception:
+                    val = max(0.0, min(1.0, val))
+                    inputs[k] = val
+                except:
                     continue
-                if val < 0:
-                    val = 0.0
-                if val > 1:
-                    val = 1.0
-                inputs[k] = val
+                # if val < 0:
+                #     val = 0.0
+                # if val > 1:
+                #     val = 1.0
+                # inputs[k] = val
         elif isinstance(user_inputs, (list, tuple, set)):
             for k in user_inputs:
                 inputs[k] = 1.0
@@ -47,35 +49,52 @@ class ReasoningEngine:
             return []
 
         cf_opt = {}
+
+        # Akumulasi CF
         for rule in self.rules:
             kode_gejala = rule.get("gejala")
-            if not kode_gejala:
+            opt_code = rule.get("opt")
+
+            if not kode_gejala or not opt_code:
                 continue
             if kode_gejala not in inputs:
                 continue
-            try:
-                user_cf = float(inputs[kode_gejala])
-            except Exception:
-                continue
-            rule_cf = float(rule.get("cf", 0.0) or 0.0)
-            contribution = user_cf * rule_cf
-            opt_code = rule.get("opt")
-            if not opt_code:
-                continue
-            if opt_code not in cf_opt:
-                cf_opt[opt_code] = contribution
-            else:
-                cf_opt[opt_code] = combine_cf(cf_opt[opt_code], contribution)
 
+            try:
+                user_cf = inputs[kode_gejala]
+                rule_cf = float(rule.get("cf", 0.0)or 0.0)
+                contribution = user_cf * rule_cf
+
+                if opt_code not in cf_opt:
+                    cf_opt[opt_code] = contribution
+                else:
+                    cf_opt[opt_code] = combine_cf(cf_opt[opt_code], contribution)
+            except Exception as e:
+                print(f"Error saat memproses aturan {rule.get('aturan_id')}: {e}")
+                continue
+
+            # rule_cf = float(rule.get("cf", 0.0) or 0.0)
+            # contribution = user_cf * rule_cf
+            # opt_code = rule.get("opt")
+            # if not opt_code:
+            #     continue
+            # if opt_code not in cf_opt:
+            #     cf_opt[opt_code] = contribution
+            # else:
+            #     cf_opt[opt_code] = combine_cf(cf_opt[opt_code], contribution)
+
+        # 3. Format dan urutkan hasil
         results = []
         for opt_code, score in cf_opt.items():
-            opt_info = self.opt.get(opt_code, {"nama": opt_code, "solusi": ""})
+            opt_info = self.opt.get(opt_code, {"nama": opt_code, "solusi": "Informasi OPT tidak ditemukan."})
+            load_rekomendasi = self.rekom.get(opt_code,[])
+
             results.append({
                 "kode_opt": opt_code,
                 "nama_opt": opt_info.get("nama", opt_code),
                 "confidence": round(score, 4),
-                "solusi": opt_info.get("solusi", ""),
-                "rekomendasi_produk": self.rekom.get(opt_code, [])
+                "solusi": opt_info.get("solusi", "Solusi tidak ditemukan"),
+                "rekomendasi_produk": load_rekomendasi
             })
 
         results.sort(key=lambda x: x["confidence"], reverse=True)

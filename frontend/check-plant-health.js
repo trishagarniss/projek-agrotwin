@@ -205,6 +205,8 @@ async function sendToBackend() {
 
         if (Object.keys(scaledGejala).length === 0) {
             alert("Pilih setidaknya satu gejala (termasuk input parameter) sebelum mengirim.");
+            kirimButton.disabled = false;
+            kirimButton.textContent = "Kirim ke Backend";
             return;
         }
 
@@ -221,7 +223,17 @@ async function sendToBackend() {
         const hasilDiv = document.getElementById("hasil");
 
         if (res.ok) {
-            // ... (Kode untuk menampilkan hasil diagnosa) ...
+            if (!Array.isArray(data)) {
+                let errorMessage = `Data yang diterima bukan array. Cek log server Python Anda. Data: ${JSON.stringify(data)}`;
+                // Jika objeknya punya key 'detail' (error default FastAPI)
+                if (data && typeof data === 'object' && data.detail) {
+                    errorMessage = `Error dari FastAPI: ${data.detail}`;
+                }
+                hasilDiv.innerHTML = `<h3>Error Data Server (Backend Crash)</h3><p>${errorMessage}</p>`;
+                nextStep();
+                return;
+            }
+
             hasilDiv.innerHTML = "";
             data.sort((a, b) => b.confidence - a.confidence);
 

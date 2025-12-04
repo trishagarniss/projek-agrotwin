@@ -59,5 +59,5 @@ def get_rekomendasi(kode_opt: str):
 @app.post("/diagnose")
 def post_diagnose(body: DiagnoseRequest):
     # body.gejala can be list or dict
-    hasil = engine.diagnose(body.gejala)
-    return {"hasil": hasil}
+    result = engine.diagnose(body.gejala)
+    return result
