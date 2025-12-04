@@ -40,11 +40,7 @@ def main():
         rekom = load_rekomendasi(REKOM_CSV)
     except FileNotFoundError:
         pass
-
-    engine = ReasoningEngine(gej, opt, rules, rekom)
-
     jawaban = {}
-
     # PH
     jawab = ask_float("Masukan PH Tanah : ")
     persen = ask_percent("Seberapa Yakin Anda Dengan Jawaban Anda? (Input Dalam Persentase)\n>> ")
@@ -53,14 +49,12 @@ def main():
         jawaban["P14"] = 0.9 * persen
     if jawab > 7:
         jawaban["P07"] = 0.4 * persen
-
     # Kelembapan udara
     jawab = ask_float("Masukan Kelembapan Udara (Input Dalam Persentase) : ")
     persen = ask_percent("Seberapa Yakin Anda Dengan Jawaban Anda? (Input Dalam Persentase)\n>> ")
     if jawab > 85:
         jawaban["P05"] = 0.8 * persen
         jawaban["P06"] = 0.7 * persen
-
     # Suhu
     jawab = ask_float("Masukan Suhu Udara (Input Dalam Celcius) : ")
     persen = ask_percent("Seberapa Yakin Anda Dengan Jawaban Anda? (Input Dalam Persentase)\n>> ")
@@ -78,7 +72,6 @@ def main():
             jawaban["P08"] += ((1 - jawaban["P08"]) * 0.5 * persen)
         else:
             jawaban["P08"] = 0.5 * persen
-
     # Kelembapan tanah
     jawab = ask_float("Masukan Kelembapan Tanah (Input Dalam Persentase) : ")
     persen = ask_percent("Seberapa Yakin Anda Dengan Jawaban Anda? (Input Dalam Persentase)\n>> ")
@@ -90,7 +83,6 @@ def main():
     if jawab > 90:
         jawaban["P01"] = 0.7 * persen
         jawaban["P09"] = 0.6 * persen
-
     # tanya gejala (meniru skema: skip 7 pertama)
     count = 1
     for g in gej:

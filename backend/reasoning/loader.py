@@ -24,14 +24,6 @@ def _detect_delimiter_and_header(path, sample_lines=5):
 
 
 def load_gejala(path):
-    """
-    Load gejala into two useful structures:
-      - list (ordered) of dicts: [{id, nama}, ...]  (keperluan ordering / skip first N)
-      - returns list only (diagnose engine expects a list)
-    Supports either:
-      - semicolon-separated without header: KODE;DESKRIPSI
-      - comma-separated with header id,nama
-    """
     delim, has_header = _detect_delimiter_and_header(path)
     gejala_list = []
     with open(path, encoding="utf-8-sig") as f:
@@ -62,11 +54,6 @@ def load_gejala(path):
 
 
 def load_opt(path):
-    """
-    Load OPT (kode -> {nama, solusi})
-    Accept semicolon-separated or comma-separated. Header optional.
-    Original format: KODE;NAMA;SOLUSI
-    """
     delim, has_header = _detect_delimiter_and_header(path)
     opt = {}
     with open(path, encoding="utf-8-sig") as f:
@@ -92,10 +79,6 @@ def load_opt(path):
 
 
 def load_rules(path):
-    """
-    Load rules as list of dicts: [{'id': id, 'gejala': gejala_kode, 'opt': opt_kode, 'cf': float}, ...]
-    Accept semicolon-separated or comma-separated. Skip rows with missing cols.
-    """
     delim, has_header = _detect_delimiter_and_header(path)
     rules = []
     with open(path, encoding="utf-8-sig") as f:
@@ -117,16 +100,13 @@ def load_rules(path):
                 cf_raw = row[2].strip()
             else:
                 continue
-
             try:
                 cf_val = float(cf_raw)
             except ValueError:
                 cf_val = 0.0
-
             # skip header-like lines where cf couldn't be parsed and gejala looks like 'gejala' text
             if (gejala.lower().startswith("gejala") or opt.lower().startswith("opt")) and cf_val == 0.0:
                 continue
-
             rules.append({
                 "id": id_field,
                 "gejala": gejala,
@@ -137,11 +117,6 @@ def load_rules(path):
 
 
 def load_rekomendasi(path):
-    """
-    Load rekomendasi: supports header CSV or simple semicolon lines.
-    Expected columns (flexible): kode_opt, bahan_aktif, produk (comma-separated inside cell)
-    Returns dict: kode -> list of {bahan_aktif, produk: [..]}
-    """
     delim, has_header = _detect_delimiter_and_header(path)
     rekom = {}
     with open(path, encoding="utf-8-sig") as f:

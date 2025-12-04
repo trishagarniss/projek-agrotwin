@@ -203,12 +203,12 @@ async function sendToBackend() {
             scaledGejala[k] = parseFloat(v) / 100.0;
         });
 
-        if (Object.keys(scaledGejala).length === 0) {
-            alert("Pilih setidaknya satu gejala (termasuk input parameter) sebelum mengirim.");
-            kirimButton.disabled = false;
-            kirimButton.textContent = "Kirim ke Backend";
-            return;
-        }
+        // if (Object.keys(scaledGejala).length === 0) {
+        //     alert("Pilih setidaknya satu gejala (termasuk input parameter) sebelum mengirim.");
+        //     kirimButton.disabled = false;
+        //     kirimButton.textContent = "Kirim ke Backend";
+        //     return;
+        // }
 
         // 4. Kirim ke Backend
         const res = await fetch(API_BASE + "/diagnose", {
