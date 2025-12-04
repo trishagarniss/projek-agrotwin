@@ -6,6 +6,15 @@ let answers = {
     gejala: {}
 };
 
+// [PERBAIKAN 1: Menambahkan map label untuk tampilan Review]
+const PARAMETER_LABELS = {
+    ph: "pH Tanah",
+    kelembapan_udara: "Kelembapan Udara",
+    suhu: "Suhu Udara",
+    kelembapan_tanah: "Kelembapan Tanah"
+};
+// END PERBAIKAN 1
+
 // STEP CONTROL
 function nextStep() {
     document.getElementById(`step-${currentStep}`).classList.remove("active");
@@ -41,68 +50,176 @@ loadGejala();
 // TOGGLE SLIDER FOR GEJALA
 function toggleGejala(id) {
     const slider = document.getElementById(`slider-${id}`);
-    const checked = document.getElementById(id).checked;
+    const checkbox = document.getElementById(id);
 
-    slider.style.display = checked ? "block" : "none";
-
-    if (!checked) delete answers.gejala[id];
+    if (checkbox.checked) {
+        slider.style.display = "block";
+        answers.gejala[id] = slider.querySelector("input[type=range]").value;
+    } else {
+        slider.style.display = "none";
+        delete answers.gejala[id];
+    }
 }
 
-// SAVE CONFIDENCE
+// SET CONFIDENCE FOR GEJALA
 function setConfidence(id, value) {
-    answers.gejala[id] = parseInt(value);
+    answers.gejala[id] = value;
 }
 
-// REVIEW PAGE
+function getInputValue(id) {
+    const element = document.getElementById(id);
+    if (element && element.value !== undefined) {
+        // Cek apakah ada nilai, jika tidak ada (kosong), kembalikan string kosong
+        return element.value || "";
+    }
+    // Jika elemen tidak ditemukan (null), kembalikan string kosong
+    // Ini membantu melewati error fatal
+    console.warn(`Elemen dengan ID '${id}' tidak ditemukan (atau null).`);
+    return "";
+}
+
+// GO TO REVIEW (REVISI LENGKAP DENGAN PENCEGAHAN NULL)
 function goToReview() {
+    // 1. Simpan semua parameter yang diinput sebelum lanjut ke review
     answers.parameter = {
         ph: {
-            value: document.getElementById("ph").value,
-            conf: document.getElementById("ph_conf").value
+            value: getInputValue("ph"),
+            conf: getInputValue("ph_conf")
         },
         kelembapan_udara: {
-            value: document.getElementById("hum_air").value,
-            conf: document.getElementById("hum_air_conf").value
+            value: getInputValue("hum_air"),
+            conf: getInputValue("hum_air_conf")
         },
         suhu: {
-            value: document.getElementById("suhu").value,
-            conf: document.getElementById("suhu_conf").value
+            value: getInputValue("suhu"),
+            conf: getInputValue("suhu_conf")
         },
         kelembapan_tanah: {
-            value: document.getElementById("hum_tanah").value,
-            conf: document.getElementById("hum_tanah_conf").value
+            value: getInputValue("hum_tanah"),
+            conf: getInputValue("hum_tanah_conf")
         }
     };
 
     const reviewDiv = document.getElementById("review");
-    reviewDiv.innerHTML = "";
+    reviewDiv.innerHTML = "<h3>Parameter Lingkungan</h3>";
 
-    // Parameter
+    // 2. Tampilkan Parameter di Review
     Object.entries(answers.parameter).forEach(([k, v]) => {
-        reviewDiv.innerHTML += `
-            <p><strong>${k}</strong>: ${v.value} (Yakin ${v.conf}%)</p>
-        `;
+        // Hanya tampilkan jika nilai atau confidence ada
+        if (v.value || parseFloat(v.conf) > 0) {
+            // Mengubah nama key agar lebih mudah dibaca
+            let displayKey = k.replace(/_/g, ' ').replace('ph', 'pH Tanah').replace('suhu', 'Suhu Udara');
+            displayKey = displayKey.charAt(0).toUpperCase() + displayKey.slice(1);
+
+            reviewDiv.innerHTML += `
+                <p><strong>${displayKey}</strong>: ${v.value} (Yakin ${v.conf || 0}%)</p>
+            `;
+        }
     });
 
-    // Gejala
-    Object.entries(answers.gejala).forEach(([k, v]) => {
-        reviewDiv.innerHTML += `<p>• ${k} — yakin ${v}%</p>`;
-    });
+    // 3. Tampilkan Gejala Manual di Review (meskipun kosong)
+    // Gunakan pengecekan length > 0 agar tidak error jika answers.gejala belum terisi
+    if (Object.keys(answers.gejala || {}).length > 0) {
+        reviewDiv.innerHTML += "<h3>Gejala Lain (Manual)</h3>";
+        Object.entries(answers.gejala).forEach(([k, v]) => {
+            reviewDiv.innerHTML += `<p>• ${k} — yakin ${v}%</p>`;
+        });
+    } else {
+        reviewDiv.innerHTML += `<p>Tidak ada gejala manual yang dipilih.</p>`;
+    }
 
-    nextStep();
+    nextStep(); // Lanjut ke STEP 6 (Review)
 }
 
-// SEND TO BACKEND
+
+// SEND TO BACKEND (DENGAN LOGIKA PARAMETER & TRY...CATCH)
 async function sendToBackend() {
-    const res = await fetch(API_BASE + "/diagnose", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(answers)
-    });
+    const kirimButton = document.querySelector("#step-6 button");
+    kirimButton.disabled = true;
+    kirimButton.textContent = "Memproses...";
 
-    const data = await res.json();
-    document.getElementById("hasil").innerHTML =
-        `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+    try {
+        // ... (Logika penentuan G01-G07 dari parameter yang sudah diperbaiki) ...
+        const allGejala = {...answers.gejala };
+        const param = answers.parameter;
 
-    nextStep();
+        const ph = parseFloat(param.ph.value);
+        const ph_conf = parseFloat(param.ph.conf);
+        const hum_air = parseFloat(param.kelembapan_udara.value);
+        const hum_air_conf = parseFloat(param.kelembapan_udara.conf);
+        const suhu = parseFloat(param.suhu.value);
+        const suhu_conf = parseFloat(param.suhu.conf);
+        const hum_tanah = parseFloat(param.kelembapan_tanah.value);
+        const hum_tanah_conf = parseFloat(param.kelembapan_tanah.conf);
+
+        if (!isNaN(ph) && ph_conf > 0) {
+            if (ph < 5.5) { allGejala["G01"] = ph_conf; } else if (ph > 7.0) { allGejala["G02"] = ph_conf; }
+        }
+        if (!isNaN(hum_air) && hum_air_conf > 0 && hum_air > 85.0) {
+            allGejala["G03"] = hum_air_conf;
+        }
+        if (!isNaN(suhu) && suhu_conf > 0) {
+            if (suhu < 20.0) { allGejala["G04"] = suhu_conf; } else if (suhu > 30.0) { allGejala["G05"] = suhu_conf; }
+        }
+        if (!isNaN(hum_tanah) && hum_tanah_conf > 0) {
+            if (hum_tanah < 40.0) { allGejala["G06"] = hum_tanah_conf; } else if (hum_tanah > 90.0) { allGejala["G07"] = hum_tanah_conf; }
+        }
+        // ... (End Logika G01-G07) ...
+
+        const scaledGejala = {};
+        Object.entries(allGejala).forEach(([k, v]) => {
+            scaledGejala[k] = parseFloat(v) / 100.0;
+        });
+
+        if (Object.keys(scaledGejala).length === 0) {
+            alert("Pilih setidaknya satu gejala (termasuk input parameter) sebelum mengirim.");
+            return;
+        }
+
+        // 4. Kirim ke Backend
+        const res = await fetch(API_BASE + "/diagnose", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                gejala: scaledGejala
+            }),
+        });
+
+        const data = await res.json();
+        const hasilDiv = document.getElementById("hasil");
+
+        if (res.ok) {
+            // ... (Kode untuk menampilkan hasil diagnosa) ...
+            hasilDiv.innerHTML = "";
+            data.sort((a, b) => b.confidence - a.confidence);
+
+            let hasResults = false;
+            let outputHtml = "";
+
+            data.forEach(d => {
+                        if (d.confidence > 0) {
+                            hasResults = true;
+                            outputHtml += `<div class="result-item"><h5>${d.nama_opt} (${(d.confidence * 100).toFixed(2)}%)</h5><p><strong>Solusi:</strong> ${d.solusi}</p>${d.rekomendasi_produk && d.rekomendasi_produk.length > 0 ? `<h6>Rekomendasi Produk Kimia:</h6><ul>${d.rekomendasi_produk.map(r => `<li>${r.bahan_aktif}: ${r.produk.join(", ")}</li>`).join("")}</ul>` : ''}</div>`;
+                }
+            });
+
+            if (!hasResults) { hasilDiv.innerHTML = `<p>Tidak ditemukan penyakit/hama berdasarkan gejala yang diberikan.</p>`; } 
+            else { hasilDiv.innerHTML = outputHtml; }
+            
+        } else {
+            hasilDiv.innerHTML = `<h3>Error saat Diagnosa</h3><p>Kode Error: ${res.status}. ${data.detail || 'Terjadi kesalahan pada server.'}</p>`;
+        }
+
+        nextStep(); 
+
+    } catch (error) {
+        const hasilDiv = document.getElementById("hasil");
+        hasilDiv.innerHTML = `<h3>Koneksi Gagal</h3><p>Tidak dapat terhubung ke *Backend* (${API_BASE}). Pastikan *server* Anda aktif dan berjalan.</p><p>Detail Error: ${error.message}</p>`;
+        console.error("Error saat mengirim ke backend:", error);
+
+        nextStep(); 
+    } finally {
+        kirimButton.disabled = false;
+        kirimButton.textContent = "Kirim ke Backend";
+    }
 }

@@ -1,95 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AgroTwin</title>
-<link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="check-plant-health.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgroTwin</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="check-plant-health.css" />
 </head>
+
 <body class="CheckPlantHealth">
 
-<div class="header-container">
-  <header class="header">
-    <div class="logo">AgroTwin</div>
+    <div class="header-container">
+        <header class="header">
+            <div class="logo">AgroTwin</div>
 
-    <nav class="nav-menu">
-      <li><a href="index.html" class="nav-item">About</a></li>
-      <li><a href="TrackYourPlant.html" class="nav-item">Track Your Plant</a></li>
-      <li><a href="CheckPlantHealth.html" class="nav-item">Check Plant Health</a></li>
-      <li><a href="TreatmentGuide.html" class="nav-item">Treatment Guide</a></li>
-    </nav>
+            <nav class="nav-menu">
+                <li><a href="index.html" class="nav-item">About</a></li>
+                <li><a href="TrackYourPlant.html" class="nav-item">Track Your Plant</a></li>
+                <li><a href="CheckPlantHealth.html" class="nav-item">Check Plant Health</a></li>
+                <li><a href="TreatmentGuide.html" class="nav-item">Treatment Guide</a></li>
+            </nav>
 
-    <a href="#" class="contact-btn">
+            <a href="#" class="contact-btn">
       Contact Us
     </a>
-  </header>
-</div>
-
-<div class="container">
-
-    <!-- STEP WRAPPER -->
-    <div id="step-container">
-
-        <!-- STEP 1 – pH Tanah -->
-        <div class="step active" id="step-1">
-            <h2>pH Tanah</h2>
-            <input type="number" id="ph" placeholder="Masukkan pH tanah..." />
-            <label>Seberapa yakin?</label>
-            <input type="range" id="ph_conf" min="0" max="100" value="0" />
-            <button onclick="nextStep()">Lanjut</button>
-        </div>
-
-        <!-- STEP 2 – Kelembapan Udara -->
-        <div class="step" id="step-2">
-            <h2>Kelembapan Udara (%)</h2>
-            <input type="number" id="hum_air" placeholder="Masukkan kelembapan..." />
-            <label>Seberapa yakin?</label>
-            <input type="range" id="hum_air_conf" min="0" max="100" value="0" />
-            <button onclick="nextStep()">Lanjut</button>
-        </div>
-
-        <!-- STEP 3 – Suhu -->
-        <div class="step" id="step-3">
-            <h2>Suhu Udara (°C)</h2>
-            <input type="number" id="suhu" placeholder="Masukkan suhu..." />
-            <label>Seberapa yakin?</label>
-            <input type="range" id="suhu_conf" min="0" max="100" value="0" />
-            <button onclick="nextStep()">Lanjut</button>
-        </div>
-
-        <!-- STEP 4 – Kelembapan Tanah -->
-        <div class="step" id="step-4">
-            <h2>Kelembapan Tanah (%)</h2>
-            <input type="number" id="hum_tanah" placeholder="Masukkan kelembapan tanah..." />
-            <label>Seberapa yakin?</label>
-            <input type="range" id="hum_tanah_conf" min="0" max="100" value="0" />
-            <button onclick="nextStep()">Lanjut</button>
-        </div>
-
-        <!-- STEP 5 – Gejala -->
-        <div class="step" id="step-5">
-            <h2>Pilih Gejala</h2>
-            <div id="gejala-container"></div>
-            <button onclick="goToReview()">Review</button>
-        </div>
-
-        <!-- STEP 6 – Review -->
-        <div class="step" id="step-6">
-            <h2>Review Data</h2>
-            <div id="review"></div>
-            <button onclick="sendToBackend()">Kirim ke Backend</button>
-        </div>
-
-        <!-- STEP 7 – Hasil Diagnosa -->
-        <div class="step" id="step-7">
-            <h2>Hasil Diagnosa</h2>
-            <div id="hasil"></div>
-        </div>
-
+        </header>
     </div>
-</div>
 
-<script src="check-plant-health.js"></script>
+    <div class="container">
+
+        <!-- STEP WRAPPER -->
+        <div id="step-container">
+
+            <!-- STEP 1 – pH Tanah -->
+            <div class="step active" id="step-1">
+                <h2>pH Tanah</h2>
+                <input type="number" id="ph" placeholder="Masukkan pH tanah..." />
+                <label>Seberapa yakin?</label>
+                <input type="range" id="ph_conf" min="0" max="100" value="0" />
+                <button onclick="nextStep()">Lanjut</button>
+            </div>
+
+            <!-- STEP 2 – Kelembapan Udara -->
+            <div class="step" id="step-2">
+                <h2>Kelembapan Udara (%)</h2>
+                <input type="number" id="hum_air" placeholder="Masukkan kelembapan udara..." />
+                <label>Seberapa yakin?</label>
+                <input type="range" id="hum_air_conf" min="0" max="100" value="0" />
+                <button onclick="nextStep()">Lanjut</button>
+            </div>
+
+            <!-- STEP 3 – Suhu -->
+            <div class="step" id="step-3">
+                <h2>Suhu Udara (°C)</h2>
+                <input type="number" id="suhu" placeholder="Masukkan suhu..." />
+                <label>Seberapa yakin?</label>
+                <input type="range" id="suhu_conf" min="0" max="100" value="0" />
+                <button onclick="nextStep()">Lanjut</button>
+            </div>
+
+            <!-- STEP 4 – Kelembapan Tanah -->
+            <div class="step" id="step-4">
+                <h2>Kelembapan Tanah (%)</h2>
+                <input type="number" id="hum_tanah" placeholder="Masukkan kelembapan tanah..." />
+                <label>Seberapa yakin?</label>
+                <input type="range" id="hum_tanah_conf" min="0" max="100" value="0" />
+                <button onclick="nextStep()">Lanjut</button>
+            </div>
+
+            <!-- STEP 5 – Gejala -->
+            <div class="step" id="step-5">
+                <h2>Pilih Gejala</h2>
+                <div id="gejala-container"></div>
+                <button onclick="goToReview()">Review</button>
+            </div>
+
+            <!-- STEP 6 – Review -->
+            <div class="step" id="step-6">
+                <h2>Review Data</h2>
+                <div id="review"></div>
+                <button onclick="sendToBackend()">Kirim ke Backend</button>
+            </div>
+
+            <!-- STEP 7 – Hasil Diagnosa -->
+            <div class="step" id="step-7">
+                <h2>Hasil Diagnosa</h2>
+                <div id="hasil"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="check-plant-health.js"></script>
 </body>
+
 </html>
