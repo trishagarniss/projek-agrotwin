@@ -1,62 +1,81 @@
-/* === GLOBAL STYLES === */
-body {
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%); 
-    margin: 0;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* ===========================================
+   GLOBAL COLOR VARIABLES (SAMA DENGAN HOME)
+=========================================== */
+:root {
+  --bg: #E8F5E9;
+  --accent: #2E7D32;
+  --accent-dark: #1B5E20;
+  --muted: #6B7280;
+  --card: #ffffff;
+  --radius: 14px;
+  --font-main: "Inter", system-ui, sans-serif;
 }
 
+/* ===========================================
+   PAGE BACKGROUND
+=========================================== */
+body.CheckPlantHealth {
+  background: var(--bg);
+  font-family: var(--font-main);
+  margin: 0;
+  color: var(--accent-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===========================================
+   CARD FORM CONTAINER
+=========================================== */
 .container {
-    width: 90%;
-    max-width: 550px;
-    background: #ffffff; 
-    
-    /* SOLUSI AGAR TIDAK MEPET ATAS */
-    margin-top: 120px; 
-    margin-bottom: 60px;
-    
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-    position: relative;
-    overflow: hidden;
-    border-top: 5px solid #2e7d32;
+  width: 90%;
+  max-width: 550px;
+  background: var(--card);
+  margin-top: 120px;
+  margin-bottom: 60px;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: 0 15px 35px rgba(125, 126, 125, 0.228);
+  position: relative;
+  overflow: hidden;
+  border-top: 5px solid var(--accent);
 }
 
+/* ===========================================
+   TITLES
+=========================================== */
 h2 {
-    color: #2e7d32;
-    font-size: 26px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  text-align: center;
+  color: var(--accent-dark);
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 30px;
 }
 
-input[type="number"], 
+
+/* ===========================================
+   INPUT FIELDS
+=========================================== */
+input[type="number"],
 input[type="text"],
 select {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 25px;
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    font-size: 16px;
-    background-color: #fafafa;
-    transition: all 0.3s ease;
-    box-sizing: border-box; 
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 25px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  background: #fafafa;
+  transition: all 0.3s ease;
 }
 
 input[type="number"]:focus,
 select:focus {
-    border-color: #43a047; 
-    background-color: #fff;
-    outline: none;
-    box-shadow: 0 0 8px rgba(67, 160, 71, 0.2);
+  border-color: var(--accent);
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(46,125,50,0.25);
 }
 
 label {
@@ -67,47 +86,56 @@ label {
     font-size: 14px;
 }
 
+/* ===========================================
+   RANGE SLIDER
+=========================================== */
 input[type="range"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 100%;
-    height: 8px;
-    background: #c8e6c9;
-    border-radius: 5px;
-    outline: none;
-    margin: 10px 0 30px;
+  width: 100%;
+  height: 8px;
+  background: #c8e6c9;
+  border-radius: 5px;
+  margin: 10px 0 30px;
 }
 
-/* Pegangan Slider (Thumb) */
 input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: #2e7d32;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    transition: transform 0.1s;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.2);
 }
 
+/* ===========================================
+   BUTTONS
+=========================================== */
 button {
-    width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(45deg, #2e7d32, #43a047);
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
-    margin-top: 10px;
+  width: 100%;
+  padding: 16px;
+  border: none;            /* <--- Tambahkan ini */
+  outline: none;           /* <--- Hilangkan garis fokus */
+  border-radius: 12px;
+  background: linear-gradient(45deg, var(--accent), #43a047);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(46,125,50,0.3);
+  transition: 0.2s;
 }
+
+/* Back button */
+.btn-back {
+  background: #757575 !important;
+}
+
+.btn-back:hover {
+  background: #616161 !important;
+} 
 
 button:hover {
     background: linear-gradient(45deg, #1b5e20, #2e7d32);
