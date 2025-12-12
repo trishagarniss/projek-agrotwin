@@ -359,3 +359,62 @@ button:active {
     color: #2e7d32; /* Warna Hijau */
     font-weight: 800;
 }
+.step {
+    position: relative; /* supaya icon bisa ditempel ke dalam step */
+}
+
+.step h2 {
+    text-align: center;
+    margin: 0 0 20px 0;
+    position: relative;
+}
+
+.info-icon {
+    position: absolute;
+    top: 4px;
+    right: 15px;
+    transform: translateY(10px); 
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background: #ffcc00;
+    color: black;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+.info-panel {
+    position: fixed;
+    top: 0;
+    right: -350px; /* awalnya tersembunyi */
+    width: 320px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+    transition: right 0.35s ease;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.info-panel.show {
+    right: 0;
+}
+
+.info-close {
+    font-size: 26px;
+    cursor: pointer;
+    float: right;
+}
+
+.info-content h3 {
+    margin-top: 0;
+}
+
+body.info-open {
+    overflow: hidden; /* biar tidak scroll saat panel terbuka */
+}

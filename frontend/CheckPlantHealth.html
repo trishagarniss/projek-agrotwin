@@ -36,6 +36,8 @@
             <!-- STEP 1 – pH Tanah -->
             <div class="step active" id="step-1">
                 <h2>pH Tanah</h2>
+                    <span class="info-icon" onclick="openInfo('ph')">!</span>
+
                 <input type="number" id="ph" min="0" max="14" placeholder="Masukkan pH tanah... (0-14)" />
                 
                 <div class="slider-label-group">
@@ -51,7 +53,8 @@
             <!-- STEP 2 – Kelembapan Udara -->
             <div class="step" id="step-2">
                 <h2>Kelembapan Udara (%)</h2>
-                <input type="number" id="hum_air" min="0" max="100" placeholder="Masukkan kelembapan udara..." />
+                    <span class="info-icon" onclick="openInfo('hum_udara')">!</span>
+                <input type="number" id="hum_air" min="0" max="100" placeholder="Masukkan kelembapan udara... (0-100)" />
                 
                 <div class="slider-label-group">
                     <span>Seberapa yakin?</span>
@@ -69,7 +72,8 @@
             <!-- STEP 3 – Suhu -->
             <div class="step" id="step-3">
                 <h2>Suhu Udara (°C)</h2>
-                <input type="number" id="suhu" min="0" max="60" placeholder="Masukkan suhu..." />
+                    <span class="info-icon" onclick="openInfo('suhu')">!</span>
+                <input type="number" id="suhu" min="0" max="60" placeholder="Masukkan suhu... (0-60℃)" />
 
                 <div class="slider-label-group">
                     <span>Seberapa yakin?</span>
@@ -87,7 +91,8 @@
             <!-- STEP 4 – Kelembapan Tanah -->
             <div class="step" id="step-4">
                 <h2>Kelembapan Tanah (%)</h2>
-                <input type="number" id="hum_tanah" min="0" max="100" placeholder="Masukkan kelembapan tanah..." />
+                    <span class="info-icon" onclick="openInfo('hum_tanah')">!</span>
+                <input type="number" id="hum_tanah" min="0" max="100" placeholder="Masukkan kelembapan tanah... (0-100)" />
 
                 <div class="slider-label-group">
                     <span>Seberapa yakin?</span>
@@ -132,6 +137,16 @@
 
         </div>
     </div>
+
+<!-- Universal Info Panel -->
+<div id="info-panel" class="info-panel">
+    <div class="info-content">
+        <span class="info-close" onclick="closeInfo()">×</span>
+        <h3 id="info-title"></h3>
+        <p id="info-text"></p>
+    </div>
+</div>
+
 
     <script src="check-plant-health.js"></script>
 </body>
