@@ -30,7 +30,7 @@ body.CheckPlantHealth {
 =========================================== */
 .container {
   width: 90%;
-  max-width: 550px;
+  max-width: 700px;
   background: var(--card);
   margin-top: 120px;
   margin-bottom: 60px;
@@ -445,4 +445,21 @@ button:active {
 
 body.info-open {
     overflow: hidden; /* biar tidak scroll saat panel terbuka */
+}
+
+/* Perbesar container hanya untuk step 7 */
+#step-7.container,
+#step-7 .container {
+    max-width: 900px !important;
+    width: 100% !important;
+    padding: 40px 60px !important; /* biar lega */
+}
+
+.step#step-7 {
+    max-width: 900px !important;
+    width: 100% !important;
+}
+
+.step#step-7 .container {
+    max-width: 900px !important;
 }
