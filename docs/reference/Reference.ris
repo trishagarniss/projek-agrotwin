@@ -1,0 +1,128 @@
+TY  - JOUR
+T1  - Developing an Expert System to Diagnose Tomato Diseases
+A1  - Al-Qadi, Mohanad H
+A1  - El-Habibi, Mohammed F
+A1  - Megdad, Mosa M M
+A1  - Alqatrawi, Mohammed J A
+A1  - Sababa, Raed Z
+A1  - Abu-Naser, Samy S
+Y1  - 2022///
+KW  - Artificial intelligent
+KW  - CLIPS
+KW  - expert system
+KW  - tomato disease
+JF  - International Journal of Academic Engineering Research
+VL  - 6
+IS  - 5
+SP  - 34
+EP  - 40
+UR  - www.ijeais.org/ijaer
+L1  - file:///D:/Projek-Agrotwin/docs/reference/Developing an Expert System to Diagnose Tomato Diseases.pdf
+N2  - There is no doubt that tomato diseases are one of the important reasons that destroy the tomato plant and its crops. This leads to clear damage to these plants and they become inedible. Discovering these diseases after a good step for proper and correct treatment. Determining the treatment with high accuracy depends on the method used in the diagnosis. Correctly, expert systems can greatly help to avoid damage to these plants. The expert system diagnoses tomato disease correctly to facilitate farmers to find the correct treatment based on the appropriate diagnosis. Objectives: An expert system has been established based on CLIPS to diagnose tomato plant disease
+ER  - 
+TY  - JOUR
+T1  - Expert Systems in Agriculture: A Review
+A1  - Rani, P
+A1  - Rajesh, T
+A1  - Saravanan, R
+Y1  - 2011///
+KW  - Expert system
+KW  - agriculture
+KW  - diseases
+KW  - mango 60 P Mercy Nesa Rani et al
+KW  - rapeseed-mustard
+KW  - rice
+KW  - tomato
+KW  - wheat
+JF  - Journal of Computer Science and Applications
+VL  - 3
+IS  - 1
+SP  - 59
+EP  - 71
+UR  - http://www.irphouse.com
+L1  - file:///D:/Projek-Agrotwin/docs/reference/Expert Systems in Agriculture A Review.pdf
+N2  - Now-a-days, expert system is widely used in agriculture exclusively for diagnosing and managing pests. These pest problems are mainly dependent upon human experts for their diagnosis and getting recovery. The involved human experts are very scarce, inconsistent in their day-today decisions, unable to comprehend large amounts of data quickly, unable to retain large amounts of data in memory, subject to deliberate or inadvertent bias in their actions and can deliberately avoid decision responsibilities. Human experts are not always available whereas the computer based expert system can be used anywhere, any time. Expert system offers an environment where the good capabilities of humans and the power of computers can be incorporated to overcome many of the limitations. Expert system increases the probability, frequency and consistency of making good decisions, additive effect of knowledge of many domain experts, facilitates real-time, low-cost expert-level decisions by the non-expert, enhance the utilization of most of the available data and free the mind and time of the human expert to enable him or her to concentrate on more creative activities. Under these backgrounds, expert system has been developed in various agricultural crops like rice, wheat, tomato, rapeseed and mustard, mango etc. in order to diagnose various pests and taking management decisions for the benefit of farmers.
+ER  - 
+TY  - JOUR
+T1  - Expert System for Tomato Plant Pest Diagnosis Using the Certainty Factor Method
+A1  - Franz, Annafi
+A1  - Ngapiyatun, Sri
+A1  - Sulpiana
+Y1  - 2020///
+KW  - certainty
+KW  - expert system
+KW  - tomato plant
+SP  - 67
+EP  - 73
+DO  - 10.51967/tepian.v1i2.97
+L1  - file:///D:/Projek-Agrotwin/docs/reference/Expert_System_for_Tomato_Plant_Pest_Diag.pdf
+N2  - This research is motivated by the failure of tomato harvest one of which is a pest attack for that program will be carried out to identify pest attacks so that crop failure can be avoided. This expert system will be implemented with the certainty factor method can provide accurate results obtained from calculations based on the weight of the symptoms chosen by the user, able to provide answers to problems that are not certain of truth such as problems diagnosing disease risk, and with this method, the expert illustrates the confidence of an expert with giving the weight of confidence in accordance with relevant expert knowledge. so that researchers increasingly believe that this expert system will be easily accessible and used by the community. From the explanation above for that, the writer makes a system, namely expert system for diagnosing oil palm plant diseases using the certainty factor method which is intended to assist the work of farmers in providing information and conclusions from pests suffered on oil palm plants.
+ER  - 
+TY  - JOUR
+T1  - Implementation of Certainty Factor in an Expert System for Diagnosing Pests and Diseases of Tomato Plants
+A1  - Fadli, Hafizul
+A1  - Enggari, Sofika
+A1  - Rahman, Sepsa
+Y1  - 2023///
+KW  - 0 international license
+KW  - a creative commons 4
+KW  - certainty factors
+KW  - diseases
+KW  - expert system
+KW  - jcsitech is licensed under
+KW  - pests
+KW  - tomato plants
+JF  - Journal of Computer Scine and Information Technology
+VL  - 9
+IS  - 3
+SP  - 132
+EP  - 137
+DO  - 10.35134/jcsitech.v9i3.76
+L1  - file:///D:/Projek-Agrotwin/docs/reference/Implementation of Certainty Factor in an Expert System fo Diagnosing Pests and Diseases of Tomato Plants.pdf
+N2  - Tomatoes are a plant that is currently widely planted by farmers. Environmental factors and stable selling power are the reasons why this plant is popular with Indonesian farmers. However, that doesn't mean tomato plants don't have growth problems. Diseases such as leaf rot, fusarium wilt, bacterial wilt and leaf scorch are still the main factors inhibiting the decline in yield and quality of tomato plants in Indonesia. This is because farmers do not understand the correct diagnosis of tomato diseases. Misdiagnosis of diseases causes the use of pesticides that are not appropriate, resulting in damage or failure of tomato plants. When diagnosing tomato diseases, you need a farm advisor who can accurately diagnose tomato diseases. In this study, an expert system for diagnosing tomato plant diseases was built to determine pest and disease diagnoses and provide solutions and suggestions for existing diseases based on the selected symptoms. The method used in this expert system is certainty factor. This method was chosen because the certainty factor measures the value of a hypothesis's belief in a fact. These values are divided into two parts, namely MB and MD. The results of applying the confidence factor method to an expert system for diagnosing tomato plant diseases with examples of cases of late blight diagnosis by selecting the appropriate symptoms obtained a percentage of 97%, so it can be interpreted that the use of this method has the opportunity to solve problems in tomato plants
+ER  - 
+TY  - JOUR
+T1  - IoT-based real-time monitoring and control system for tomato cultivation
+A1  - Rai, Hari Mohan
+A1  - Shukla, Kaustubh Kumar
+A1  - Goya, Yashika
+A1  - Amanzholova, Saule
+A1  - Nessibely, Askarbekova
+Y1  - 2024///
+KW  - Arduino
+KW  - Automatic farming
+KW  - Hydroponics
+KW  - Internet of Things (IoT)
+KW  - Real Time Crop Monitoring
+KW  - Tomato cultivation
+PB  - Elsevier B.V.
+JF  - Procedia Computer Science
+SP  - 433
+EP  - 438
+DO  - 10.1016/j.procs.2024.08.060
+UR  - https://doi.org/10.1016/j.procs.2024.08.060
+L1  - file:///D:/Projek-Agrotwin/docs/reference/IoT-based real-time monitoring and control system for tomato cultivation.pdf
+N2  - IoT techniques have transformative potential across domains, particularly in precision agriculture, where they enable farmers to optimize crop production while minimizing environmental impact. This paper presents an IoT-based real-time monitoring and control system for hydroponic tomato cultivation. The system integrates various hardware components, including sensors for monitoring temperature, humidity, pH levels, and gas concentrations. Arduino microcontrollers collect and process sensor data, enabling automated control of water, nutrient supply, and ventilation. Wi-Fi and GSM modules facilitate remote monitoring and data transmission, empowering farmers to monitor and control their tomato crops remotely. The system has been successfully tested for tomato cultivation, demonstrating promising results. Although tailored for tomatoes, its design principles can be adapted for other crops. Moreover, it shows significant water and nutrient efficiency, highlighting its economic feasibility.
+ER  - 
+TY  - JOUR
+T1  - Klasifikasi Penyakit Tanaman Tomat Menggunakan Metode Convolutional Neural Network (CNN) VGG16
+A1  - Pradana, Marchel Adias
+A1  - Maulana, Rafie Ishaq
+A1  - Putra, Riza Satria
+A1  - Subairi, Subairi
+A1  - Anggraeny, Fetty Tri
+Y1  - 2023///
+JF  - KERNEL: Jurnal Riset Inovasi Bidang Informatika dan Pendidikan Informatika
+VL  - 4
+IS  - 2
+DO  - 10.31284/j.kernel.2023.v4i2.6829
+L1  - file:///D:/Projek-Agrotwin/docs/reference/Klasifikasi Penyakit Tanaman Tomat Menggunakan Metode ConvolutionalNeural Network (CNN) VGG16.pdf
+N2  - Penyakit tanaman merupakan tantangan utama dalam pertanian tomat yang dapat mengurangi hasil panen dan kualitas produk, salah satu bagian tanaman yang sering menjadi target serangan adalah daun, sehingga deteksi dini penyakit tanaman menjadi sangat penting. Penelitian ini dilakukan untuk mengklasifikasikan penyakit tanaman tomat berdasarkan citra daun menggunakan model Convolutional Neural Network (CNN) dengan arsitektur VGG-16, yang dikenal karena kedalamannya dan kemampuannya dalam mengekstraksi fitur kompleks serta menangani variasi dalam data gambar. Hasil penelitian menunjukkan bahwa model mencapai akurasi pengujian sebesar 91% dan akurasi pengujian validasi 92%, menegaskan kemampuannya dalam mendeteksi berbagai penyakit tomat dengan generalisasi yang memadai. Temuan ini menunjukkan potensi teknologi deep learning dalam meningkatkan sistem deteksi penyakit tanaman, yang dapat mendukung praktik pertanian yang lebih efisien.
+ER  - 
+TY  - RPRT
+T1  - Standar Operasional Prosedur (SOP) Budidaya Tomat
+A1  - Direktorat Sayuran dan Tanaman Obat
+Y1  - 2021///
+SN  - 1969112719
+L1  - file:///D:/Projek-Agrotwin/docs/reference/SOP-TOMAT-2021_watermark.pdf
+ER  - 
