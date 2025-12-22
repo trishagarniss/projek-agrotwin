@@ -6,6 +6,69 @@ let answers = {
     gejala: {}
 };
 
+// Isi informasi untuk setiap indikator
+const INFO_DATA = {
+    ph: {
+        title: "Informasi pH Tanah",
+        text: `
+• 0 – 5 : Sangat asam  
+• 5 – 6 : Asam  
+• 6 – 7 : Netral  
+• 7 – 8 : Sedikit basa  
+• > 8 : Basa tinggi`
+    },
+
+    hum_udara: {
+        title: "Informasi Kelembapan Udara",
+        text: `
+• 0 – 20% : Sangat kering  
+• 20 – 40% : Kering  
+• 40 – 60% : Ideal  
+• 60 – 80% : Lembap  
+• > 80% : Sangat lembap`
+    },
+
+    suhu: {
+        title: "Informasi Suhu",
+        text: `
+• < 15°C : Terlalu dingin  
+• 15 – 25°C : Ideal  
+• 25 – 35°C : Hangat  
+• > 35°C : Terlalu panas`
+    },
+
+    hum_tanah: {
+        title: "Informasi Kelembapan Tanah",
+        text: `
+• 0 – 20% : Sangat kering  
+• 20 – 40% : Kurang lembap  
+• 40 – 60% : Ideal  
+• 60 – 80% : Lembap  
+• > 80% : Sangat basah`
+    }
+};
+
+
+// Tampilkan panel
+function openInfo(key) {
+    const panel = document.getElementById("info-panel");
+
+    // set isi
+    document.getElementById("info-title").innerText = INFO_DATA[key].title;
+    document.getElementById("info-text").innerText = INFO_DATA[key].text;
+
+    panel.classList.add("show");
+    document.body.classList.add("info-open");
+}
+
+// Tutup panel
+function closeInfo() {
+    const panel = document.getElementById("info-panel");
+    panel.classList.remove("show");
+    document.body.classList.remove("info-open");
+}
+
+
 // [PERBAIKAN 1: Menambahkan map label untuk tampilan Review]
 const PARAMETER_LABELS = {
     ph: "pH Tanah",
